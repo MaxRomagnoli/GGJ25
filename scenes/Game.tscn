@@ -1,6 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=13 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_q7br7"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_y70rt"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_2tsec"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_521t4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,13 +19,34 @@ sky = SubResource("Sky_ixbn2")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="Resource" id="Resource_xmi16"]
+script = ExtResource("4_521t4")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_5vvbj"]
+script = ExtResource("4_2tsec")
+amplitude = 10.0
+frequency = 0.2
+randomize_noise_seed = 1
+noise_seed = 0
+rotational_noise = true
+positional_noise = false
+rotational_multiplier_x = 1.0
+rotational_multiplier_y = 1.0
+rotational_multiplier_z = 1.0
+positional_multiplier_x = 1.0
+positional_multiplier_y = 1.0
+positional_multiplier_z = 1.0
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_a8tpf"]
 size = Vector2(10, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qcvs2"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mxysm")
@@ -31,11 +56,28 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.914049, 0.405604, 0, -0.405604, 0.914049, 0, 2.98171, 3)
+physics_interpolation_mode = 2
+transform = Transform3D(-0.999619, 0.0226538, -0.0157807, 0.0107849, 0.846584, 0.532145, 0.0254148, 0.531772, -0.846506, 0, 3.53641, -3.83205)
+current = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_q7br7")
 
 [node name="Player" parent="." instance=ExtResource("1_3t8mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.981708, 0)
+gravity_scale = 0.0
 linear_damp = 3.0
+
+[node name="PhantomCamera3D" type="Node3D" parent="Player" node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(-0.999999, 0, 0, 0, 0.83205, 0.5547, 0, 0.5547, -0.832051, 0, 2.5547, -3.83205)
+script = ExtResource("3_y70rt")
+follow_mode = 6
+follow_target = NodePath("..")
+tween_resource = SubResource("Resource_xmi16")
+follow_offset = Vector3(0, 2, -3)
+noise = SubResource("Resource_5vvbj")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_a8tpf")
