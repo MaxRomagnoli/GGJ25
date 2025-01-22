@@ -16,7 +16,7 @@ Bubbles
 - 3D => Blender
 
 ## Assets
-[phantom-camera](https://phantom-camera.dev)
+- [Phantom Camera](https://phantom-camera.dev)
 
 ## Modelli 3D
 - Zanzara -> Klaus
