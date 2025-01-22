@@ -54,6 +54,10 @@ func _physics_process(delta: float) -> void:
 	var y_rotation = Input.get_axis("move_right", "move_left")
 	rotate_y(y_rotation * rotation_velocity * delta)
 	#main_camera.rotation_degrees.y = 180 + player.rotation_degrees.y
+	if y_rotation > 0:
+		animation_player.play("Mosquito_FlyRight_Loop")
+	elif y_rotation < 0:
+		animation_player.play("Mosquito_FlyLeft_Loop")
 	
 	# Rotate vertically
 	var x_rotation = Input.get_axis("move_down", "move_up")

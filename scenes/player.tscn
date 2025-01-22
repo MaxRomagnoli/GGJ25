@@ -12,4 +12,3 @@ script = ExtResource("1_qk5w2")
 shape = SubResource("SphereShape3D_wbx2o")
 
 [node name="Zanzara" parent="." instance=ExtResource("2_fq08e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3539, 0)

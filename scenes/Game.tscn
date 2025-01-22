@@ -57,7 +57,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
-transform = Transform3D(-0.996801, 0.0504717, -0.0619649, 0.00932436, 0.843498, 0.537051, 0.0793731, 0.534755, -0.841271, 0, 3.58863, -3.91165)
+transform = Transform3D(-0.998399, -0.0464457, 0.0322708, -0.0218923, 0.843494, 0.536692, -0.0521472, 0.535126, -0.843161, 0, 3.58863, -3.91165)
 current = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
