@@ -5,11 +5,11 @@ Global Game Jam 2025
 Bubbles
 
 ## Team Merari
-[Max Romagnoli](https://www.maxromagnoli.com) (programmatore)
-Zibbo (audio design)
-Core Diz (audio design)
-Klaus (3D / programmazione)
-Arostaky (3D / programmazione)
+- [Max Romagnoli](https://www.maxromagnoli.com) (programmatore)
+- Zibbo (audio design)
+- Core Diz (audio design)
+- Klaus (3D / programmazione)
+- Arostaky (3D / programmazione)
 
 ## Tools
 Engine di gioco => Godot 4.3
@@ -19,9 +19,9 @@ Engine di gioco => Godot 4.3
 [phantom-camera](https://phantom-camera.dev)
 
 ## Modelli 3D
-Zanzara -> Klaus
-Lampada antizanzare -> Arostaky
-Ambientazione -> Arostaky
+- Zanzara -> Klaus
+- Lampada antizanzare -> Arostaky
+- Ambientazione -> Arostaky
 
 ## Riferimenti
-Banjo-Kazooie Just Flying Around!
+- Banjo-Kazooie Just Flying Around!
