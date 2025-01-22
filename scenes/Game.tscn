@@ -57,7 +57,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
-transform = Transform3D(-0.998399, -0.0464457, 0.0322708, -0.0218923, 0.843494, 0.536692, -0.0521472, 0.535126, -0.843161, 0, 3.58863, -3.91165)
+transform = Transform3D(-0.997441, 0.0497994, -0.0513077, 0.0145883, 0.844219, 0.5358, 0.0699974, 0.53368, -0.842785, 0, 3.58863, -3.91165)
 current = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -67,6 +67,8 @@ script = ExtResource("1_q7br7")
 
 [node name="Player" parent="." instance=ExtResource("1_3t8mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.981708, 0)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 gravity_scale = 0.0
 linear_damp = 3.0
 
