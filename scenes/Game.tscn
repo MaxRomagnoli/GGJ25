@@ -19,7 +19,13 @@ sky = SubResource("Sky_ixbn2")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_xmi16"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_a8tpf"]
+size = Vector2(10, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qcvs2"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[sub_resource type="Resource" id="Resource_num0l"]
 script = ExtResource("4_521t4")
 duration = 1.0
 transition = 0
@@ -40,12 +46,6 @@ positional_multiplier_x = 1.0
 positional_multiplier_y = 1.0
 positional_multiplier_z = 1.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_a8tpf"]
-size = Vector2(10, 10)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qcvs2"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
-
 [node name="Node" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -57,7 +57,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
-transform = Transform3D(-0.999619, 0.0226538, -0.0157807, 0.0107849, 0.846584, 0.532145, 0.0254148, 0.531772, -0.846506, 0, 3.53641, -3.83205)
+transform = Transform3D(-0.996801, 0.0504717, -0.0619649, 0.00932436, 0.843498, 0.537051, 0.0793731, 0.534755, -0.841271, 0, 3.58863, -3.91165)
 current = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -70,14 +70,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.981708, 0)
 gravity_scale = 0.0
 linear_damp = 3.0
 
-[node name="PhantomCamera3D" type="Node3D" parent="Player" node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(-0.999999, 0, 0, 0, 0.83205, 0.5547, 0, 0.5547, -0.832051, 0, 2.5547, -3.83205)
-script = ExtResource("3_y70rt")
-follow_mode = 6
-follow_target = NodePath("..")
-tween_resource = SubResource("Resource_xmi16")
-follow_offset = Vector3(0, 2, -3)
-noise = SubResource("Resource_5vvbj")
+[node name="CameraTarget" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60692, -3.91165)
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_a8tpf")
@@ -87,3 +81,16 @@ skeleton = NodePath("../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qcvs2")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(-0.999999, 0, 0, 0, 0.832133, 0.554575, 0, 0.554575, -0.832134, 0, 3.58863, -3.91165)
+top_level = true
+script = ExtResource("3_y70rt")
+follow_mode = 2
+follow_target = NodePath("../Player/CameraTarget")
+look_at_mode = 2
+look_at_target = NodePath("../Player")
+tween_resource = SubResource("Resource_num0l")
+follow_damping = true
+look_at_damping_value = 0.0
+noise = SubResource("Resource_5vvbj")
