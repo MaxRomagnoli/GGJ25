@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=14 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_q7br7"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_y70rt"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_2tsec"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_521t4"]
+[ext_resource type="PackedScene" uid="uid://caa3j1qu70bff" path="res://scenes/ammazzazanzare.tscn" id="6_30wm7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -57,7 +58,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
-transform = Transform3D(-0.997441, 0.0497994, -0.0513077, 0.0145883, 0.844219, 0.5358, 0.0699974, 0.53368, -0.842785, 0, 3.58863, -3.91165)
+transform = Transform3D(-0.999853, -0.00539928, -0.0162874, -0.0087824, 0.97648, 0.215431, 0.0147412, 0.215543, -0.976383, 0, 3.98171, -4)
 current = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -71,9 +72,10 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
 linear_damp = 3.0
+idle_velocity = 0
 
 [node name="CameraTarget" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60692, -3.91165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_a8tpf")
@@ -85,7 +87,7 @@ skeleton = NodePath("../Player")
 shape = SubResource("ConcavePolygonShape3D_qcvs2")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.999999, 0, 0, 0, 0.832133, 0.554575, 0, 0.554575, -0.832134, 0, 3.58863, -3.91165)
+transform = Transform3D(-0.999999, 0, 0, 0, 0.970142, 0.242536, 0, 0.242535, -0.970144, 0, 3.98171, -4)
 top_level = true
 script = ExtResource("3_y70rt")
 follow_mode = 2
@@ -94,5 +96,9 @@ look_at_mode = 2
 look_at_target = NodePath("../Player")
 tween_resource = SubResource("Resource_num0l")
 follow_damping = true
+look_at_offset = Vector3(0, 2, 0)
 look_at_damping_value = 0.0
 noise = SubResource("Resource_5vvbj")
+
+[node name="Ammazzazanzare" parent="." instance=ExtResource("6_30wm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 15, 4)
