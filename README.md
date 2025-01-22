@@ -12,8 +12,8 @@ Bubbles
 - Arostaky (3D / programmazione)
 
 ## Tools
-Engine di gioco => Godot 4.3
-3D => Blender
+- Engine di gioco => Godot 4.3
+- 3D => Blender
 
 ## Assets
 [phantom-camera](https://phantom-camera.dev)
