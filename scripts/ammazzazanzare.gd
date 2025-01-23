@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var fire_time := Vector2(2.0, 5.0)
+@onready var player: CharacterBody3D = %Player
 
 var current_fire_time: float
 var saetta = preload("res://scenes/saetta.tscn")
@@ -13,4 +14,9 @@ func _process(delta: float) -> void:
 		fire()
 
 func fire() -> void:
-	print("fire")
+	print("FIRE")
+	var child = saetta.instantiate()
+	var direction: Vector3 = (self.position - player.position).normalized()
+	child.basis = Basis.looking_at(direction)
+	child.position += Vector3.DOWN * 20
+	add_child(child)

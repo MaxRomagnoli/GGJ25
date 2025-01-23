@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=20 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_q7br7"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_y70rt"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_2tsec"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://caa3j1qu70bff" path="res://scenes/ammazzazanzare.tscn" id="6_30wm7"]
 [ext_resource type="PackedScene" uid="uid://bljyg7s2ot3wp" path="res://scenes/spawner.tscn" id="7_x8126"]
 [ext_resource type="PackedScene" uid="uid://cph5d1nise4a3" path="res://scenes/saetta.tscn" id="8_0neq2"]
+[ext_resource type="PackedScene" uid="uid://dlt31xhqteilt" path="res://scenes/menu.tscn" id="10_3bv43"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,9 +51,16 @@ positional_multiplier_x = 1.0
 positional_multiplier_y = 1.0
 positional_multiplier_z = 1.0
 
+[sub_resource type="Resource" id="Resource_6yr6m"]
+script = ExtResource("4_521t4")
+duration = 1.0
+transition = 0
+ease = 2
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_nsqlp"]
 
 [node name="Node" type="Node3D"]
+script = ExtResource("1_hsp4a")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mxysm")
@@ -62,7 +71,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
-transform = Transform3D(-0.999425, -0.0127025, 0.0314442, -0.00363517, 0.961986, 0.273073, -0.0337176, 0.272802, -0.961479, 0, 3.98171, -4)
+transform = Transform3D(0.971973, 0.0471127, -0.230325, 1.86265e-09, 0.979714, 0.200399, 0.235094, -0.194782, 0.952256, -2.52927, 2.44221, 2.18822)
 current = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -71,10 +80,10 @@ process_physics_priority = 300
 script = ExtResource("1_q7br7")
 
 [node name="Player" parent="." instance=ExtResource("1_3t8mw")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.981708, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-idle_velocity = 0
 
 [node name="CameraTarget" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
@@ -99,11 +108,21 @@ look_at_target = NodePath("../Player")
 tween_resource = SubResource("Resource_num0l")
 follow_damping = true
 look_at_offset = Vector3(0, 2, 0)
-look_at_damping_value = 0.0
+look_at_damping = true
+look_at_damping_value = 0.1
 noise = SubResource("Resource_5vvbj")
 
+[node name="PhantomCamera3DMenu" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.971972, 0.0471126, -0.230325, 1.86264e-09, 0.979714, 0.200399, 0.235094, -0.194782, 0.952255, -2.52927, 2.44221, 2.18822)
+script = ExtResource("3_y70rt")
+priority = 1
+look_at_mode = 2
+look_at_target = NodePath("../Player")
+tween_resource = SubResource("Resource_6yr6m")
+look_at_offset = Vector3(-2, 1, 0)
+
 [node name="Ammazzazanzare" parent="." instance=ExtResource("6_30wm7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 15, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, -3.63889, 4)
 
 [node name="Spawner" parent="." instance=ExtResource("7_x8126")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
@@ -114,3 +133,7 @@ mesh = SubResource("CylinderMesh_nsqlp")
 
 [node name="Saetta" parent="." instance=ExtResource("8_0neq2")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -10.0994, 0, 15.0331)
+
+[node name="Menu" parent="." instance=ExtResource("10_3bv43")]
+
+[connection signal="game_start" from="Menu" to="." method="start_game"]

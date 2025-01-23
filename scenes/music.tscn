@@ -1,5 +1,10 @@
-[gd_scene format=3 uid="uid://iw4j25yfyv5d"]
+[gd_scene load_steps=2 format=3 uid="uid://iw4j25yfyv5d"]
+
+[ext_resource type="AudioStream" uid="uid://wvtecvfme20d" path="res://assets/music/main.mp3" id="1_oc3f5"]
 
 [node name="Music" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_oc3f5")
+attenuation_model = 3
 autoplay = true
 bus = &"Music"
+parameters/looping = true
