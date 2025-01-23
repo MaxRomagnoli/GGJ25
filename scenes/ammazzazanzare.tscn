@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://caa3j1qu70bff"]
 
-[ext_resource type="PackedScene" uid="uid://km1usmso05ey" path="res://assets/enemies/bug_zapper.glb" id="1_c8e3l"]
+[ext_resource type="PackedScene" uid="uid://0p7pbyxsmhyr" path="res://assets/enemies/bug_zapper.glb" id="1_c8e3l"]
 [ext_resource type="PackedScene" uid="uid://csap6fp8mp1ss" path="res://scenes/killzone.tscn" id="2_2a5yc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1qg8x"]

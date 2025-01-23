@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var idle_velocity := 10
 @export var attacking_velocity := 15
 @export var rotation_velocity := 5.0
+@export var vertical_velocity := 5.0
 
 @onready var zanzara: Node3D = $Zanzara
 @onready var mesh: MeshInstance3D = $Zanzara/Mosquito_Rig/Skeleton3D/Mosquito
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	rotate_y(y_rotation * rotation_velocity * delta)
 	
 	# Move vertically
-	var vertical_movement = Input.get_axis("move_down", "move_up") * delta
+	var vertical_movement = Input.get_axis("move_down", "move_up") * delta * vertical_velocity
 	
 	var forward: Vector3 = global_transform.basis * Vector3(
 		0,
