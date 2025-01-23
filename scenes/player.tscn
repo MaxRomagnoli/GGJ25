@@ -5,11 +5,12 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wbx2o"]
 
-[node name="Player" type="RigidBody3D"]
-collision_mask = 2
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_qk5w2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.5)
 shape = SubResource("SphereShape3D_wbx2o")
 
 [node name="Zanzara" parent="." instance=ExtResource("2_fq08e")]

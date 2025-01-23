@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=16 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_q7br7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_2tsec"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_521t4"]
 [ext_resource type="PackedScene" uid="uid://caa3j1qu70bff" path="res://scenes/ammazzazanzare.tscn" id="6_30wm7"]
+[ext_resource type="PackedScene" uid="uid://bljyg7s2ot3wp" path="res://scenes/spawner.tscn" id="7_x8126"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -47,6 +48,8 @@ positional_multiplier_x = 1.0
 positional_multiplier_y = 1.0
 positional_multiplier_z = 1.0
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_nsqlp"]
+
 [node name="Node" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -58,7 +61,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
-transform = Transform3D(-0.996898, 0.0696424, -0.0366693, 0.0602283, 0.974929, 0.21421, 0.050668, 0.211337, -0.976099, 0, 3.98171, -4)
+transform = Transform3D(-0.999131, 0.0392881, 0.0139316, 0.0415639, 0.964409, 0.261129, -0.00317646, 0.261482, -0.965203, 0, 3.98171, -4)
 current = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -102,3 +105,10 @@ noise = SubResource("Resource_5vvbj")
 
 [node name="Ammazzazanzare" parent="." instance=ExtResource("6_30wm7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 15, 4)
+
+[node name="Spawner" parent="." instance=ExtResource("7_x8126")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawner"]
+transform = Transform3D(5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nsqlp")
