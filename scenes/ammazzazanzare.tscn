@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://caa3j1qu70bff"]
+[gd_scene load_steps=5 format=3 uid="uid://caa3j1qu70bff"]
 
 [ext_resource type="PackedScene" uid="uid://0p7pbyxsmhyr" path="res://assets/enemies/bug_zapper.glb" id="1_c8e3l"]
+[ext_resource type="Script" path="res://scripts/ammazzazanzare.gd" id="1_govdq"]
 [ext_resource type="PackedScene" uid="uid://csap6fp8mp1ss" path="res://scenes/killzone.tscn" id="2_2a5yc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1qg8x"]
 
 [node name="Ammazzazanzare" type="Node3D"]
+script = ExtResource("1_govdq")
 
 [node name="bug_zapper" parent="." instance=ExtResource("1_c8e3l")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
