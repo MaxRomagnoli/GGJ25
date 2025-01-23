@@ -31,6 +31,7 @@ func start() -> void:
 
 func die() -> void:
 	current_player_state = PlayerState.DEATH
+	animation_player.play("Mosquito_Shock" + str(randi_range(1, 3)))
 	set_power_up(BubbleType.PowerType.NONE, 0) # reset power up
 	death_timer.start()
 
