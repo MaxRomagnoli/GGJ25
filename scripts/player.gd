@@ -11,8 +11,20 @@ extends CharacterBody3D
 @onready var main_camera: PhantomCamera3D = $"../PhantomCamera3D"
 
 var is_attacking := false
-var mesh_zanzara = preload("res://assets/Zanzara_Mosquito_D_256-Mosquito_A_256.png")
-var mesh_zanzara_red = preload("res://assets/Zanzara_Mosquito_D_256-Mosquito_A_256_red.png")
+var material: Material
+var current_power_up: BubbleType.PowerType = BubbleType.PowerType.NONE
+var current_power_up_time: float
+
+func _ready() -> void:
+	material = mesh.get_active_material(0)
+
+func _process(delta: float) -> void:
+	if current_power_up != BubbleType.PowerType.NONE:
+		current_power_up_time -= delta
+		
+		# Reset power up
+		if current_power_up_time <= 0:
+			set_power_up(BubbleType.PowerType.NONE, 0)
 
 func _input(event) -> void:
 	if event.is_action_pressed("move_forward_controller"):
@@ -33,7 +45,13 @@ func attack(attack: bool, vibrate: bool) -> void:
 		is_attacking = false
 		if vibrate:
 			Input.stop_joy_vibration(0)
-	
+
+func set_power_up(power_up: BubbleType.PowerType, power_up_time: float) -> void:
+	current_power_up = power_up
+	current_power_up_time = power_up_time
+	material.albedo_color = BubbleType.get_color(power_up)
+	mesh.set_surface_override_material(0, material)
+
 func _physics_process(delta: float) -> void:
 	
 	var velocity = delta
@@ -59,7 +77,6 @@ func _physics_process(delta: float) -> void:
 	# Animation
 	if is_attacking:
 		animation_player.play("Mosquito_Attack_Loop")
-		#mesh.material_override = mesh_zanzara_red # NOT WORKING
 	elif y_rotation > 0:
 		animation_player.play("Mosquito_FlyRight_Loop")
 	elif y_rotation < 0:
@@ -70,4 +87,3 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("Mosquito_Forward")
 	else:
 		animation_player.play("Mosquito_Idle")
-		#mesh.set_surface_override_material(0, mesh_zanzara) # NOT WORKING

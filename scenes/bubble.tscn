@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dru4kubwwnk01"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_snhgh"]
+[ext_resource type="Material" uid="uid://dsio66stivpse" path="res://materials/bubble.tres" id="2_lrwtp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g04oj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q54rn"]
-
 [sub_resource type="SphereMesh" id="SphereMesh_3n8iw"]
-material = SubResource("StandardMaterial3D_q54rn")
+material = ExtResource("2_lrwtp")
 radial_segments = 8
 rings = 8
 
