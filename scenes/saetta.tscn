@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://cph5d1nise4a3"]
+[gd_scene load_steps=6 format=4 uid="uid://cph5d1nise4a3"]
 
 [ext_resource type="Script" path="res://scripts/saetta.gd" id="1_bu5n3"]
-[ext_resource type="PackedScene" uid="uid://csap6fp8mp1ss" path="res://scenes/killzone.tscn" id="1_pyq8f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sfse4"]
+size = Vector3(0.0352631, 0.00504684, 0.114502)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rd5nn"]
 resource_name = "lightningbolt_m"
@@ -10,7 +12,7 @@ albedo_color = Color(0, 0.317647, 0.443137, 1)
 metallic = 0.886364
 roughness = 0.45
 emission_enabled = true
-emission = Color(0, 0.192157, 0.964706, 1)
+emission = Color(0, 0.701961, 0.964706, 1)
 emission_energy_multiplier = 2.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5ioe4"]
@@ -45,21 +47,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5ioe4")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7u1qk"]
-size = Vector3(0.173997, 0.0949707, 0.0848236)
-
-[node name="Saetta" type="Node3D"]
+[node name="Saetta" type="Area3D"]
 transform = Transform3D(100, 0, 0, 0, 300, 0, 0, 0, 100, 0, 0, 0)
+collision_mask = 7
 script = ExtResource("1_bu5n3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00353241, 0.00233269, 0.0020752)
+shape = SubResource("BoxShape3D_sfse4")
 
 [node name="Lightning-Bolt" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.036101, 0, 0.00926916, 0, 0.037272, 0, -0.00926916, 0, 0.036101, 0, 0.00445517, 0)
 mesh = SubResource("ArrayMesh_icnkm")
 skeleton = NodePath("")
 
-[node name="Killzone" parent="." instance=ExtResource("1_pyq8f")]
-transform = Transform3D(0.2, 0, 0, 0, 0.05, 0, 0, 0, 1, 0, 0, 0)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.0255587, 0.0596486, 0.00303501)
-shape = SubResource("BoxShape3D_7u1qk")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

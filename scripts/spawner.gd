@@ -34,5 +34,5 @@ func spawn() -> void:
 	)
 	var scale_random = randf_range(spawn_scale.x, spawn_scale.y)
 	var speed = randf_range(speed_range.x, speed_range.y)
-	add_child(child)
+	self.add_child(child)
 	child.start(speed, Vector3.ONE * scale_random, power_up_time, spawner_type)

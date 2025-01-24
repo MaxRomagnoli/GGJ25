@@ -1,10 +1,24 @@
 extends Node3D
 
-@onready var player: CharacterBody3D = %Player
 var speed = 30.0
+var is_shrinking = false
+var shrink_time = 1 # Seconds
+var shrink_to_reduce: float
+
+func _init() -> void:
+	if shrink_time > 0:
+		shrink_to_reduce = scale.x / shrink_time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	# If is shrinking, reduce until disappear
+	if is_shrinking:
+		scale -= Vector3.ONE * shrink_to_reduce * delta
+		# print(scale)
+		if scale.x <= 0:
+			print("Bolt destroyed")
+			queue_free()
 	
 	# Move forward
 	position += (global_transform.basis * Vector3.FORWARD).normalized() * delta * speed
@@ -19,3 +33,11 @@ func _process(delta: float) -> void:
 	#look_at(player.position)
 	#var new = transform.basis
 	#transform.basis = lerp(old, new, .1)
+
+func _on_timer_timeout() -> void:
+	is_shrinking = true
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		body.die()
+	queue_free()

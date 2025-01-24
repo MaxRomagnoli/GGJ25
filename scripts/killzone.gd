@@ -10,3 +10,4 @@ func _on_body_entered(body) -> void:
 		destroy_killzone.emit()
 	else:
 		body.die()
+	queue_free()

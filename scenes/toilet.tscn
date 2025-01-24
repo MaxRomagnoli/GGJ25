@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://b1fiif4oa2a5i"]
+[gd_scene load_steps=17 format=4 uid="uid://b1fiif4oa2a5i"]
 
+[ext_resource type="Texture2D" uid="uid://cipy7je287lxg" path="res://assets/crackhouse/toilet/toilet_texture_256x256_toilet_old.png" id="1_0rq0h"]
 [ext_resource type="Texture2D" uid="uid://lpts6oyhqo42" path="res://assets/crackhouse/toilet/toilet_texture_256x256_toilet.png" id="1_iqeen"]
 [ext_resource type="Texture2D" uid="uid://4c6j4c2b28dv" path="res://assets/crackhouse/toilet/toilet_punkreas.png" id="2_hlhqg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7gar"]
 resource_name = "toilet_white"
 cull_mode = 2
-albedo_texture = ExtResource("1_iqeen")
+albedo_texture = ExtResource("1_0rq0h")
 metallic = 0.495455
 roughness = 0.195455
 normal_enabled = true
