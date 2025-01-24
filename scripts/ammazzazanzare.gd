@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var fire_time := Vector2(2.0, 5.0)
+@export var fire_time := Vector2(1.0, 2.0)
 @export var agro_range := float(7000.0) # meters
 @onready var player: CharacterBody3D = %Player
 @onready var spawner: Node = $Spawner

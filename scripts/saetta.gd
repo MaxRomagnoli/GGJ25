@@ -1,8 +1,8 @@
 extends Node3D
 
-var speed = 30.0
+var speed = 50.0
 var is_shrinking = false
-var shrink_time = 1 # Seconds
+var shrink_time = 0.5 # Seconds
 var shrink_to_reduce: float
 
 func _init() -> void:
@@ -17,8 +17,7 @@ func _process(delta: float) -> void:
 		scale -= Vector3.ONE * shrink_to_reduce * delta
 		# print(scale)
 		if scale.x <= 0:
-			print("Bolt destroyed")
-			queue_free()
+			queue_free() # Destroy
 	
 	# Move forward
 	position += (global_transform.basis * Vector3.FORWARD).normalized() * delta * speed

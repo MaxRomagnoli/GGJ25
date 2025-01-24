@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum PlayerState { WAIT, PLAY, DEATH, WIN }
+enum PlayerState { WAIT, PLAY, PAUSE, DEATH, WIN }
 
 @export var idle_velocity := 5.0
 @export var attacking_velocity := 15.0
@@ -30,7 +30,12 @@ func _ready() -> void:
 	material = mesh.get_active_material(0)
 
 func start() -> void:
+	Engine.time_scale = 1.0
 	current_player_state = PlayerState.PLAY
+
+func pause() -> void:
+	Engine.time_scale = 0.0
+	current_player_state = PlayerState.PAUSE
 
 func die() -> void:
 	
@@ -62,8 +67,11 @@ func _process(delta: float) -> void:
 
 func _input(event) -> void:
 	
-	# Do nothing if player is waiting
-	if current_player_state != PlayerState.PLAY:
+	if current_player_state == PlayerState.PAUSE:
+		if event.is_action_pressed("toogle_pause"):
+			current_player_state = PlayerState.PLAY
+	elif current_player_state != PlayerState.PLAY:
+		# Do nothing if player is waiting
 		return
 	
 	player_input = Vector2(
