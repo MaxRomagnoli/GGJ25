@@ -6,12 +6,16 @@
 - [Max Romagnoli](https://www.maxromagnoli.com) (main programmer and game designer)
 - Zibbo (audio design)
 - Core Diz (audio design)
-- Klaus (3D / programmer)
-- Arostaky (3D / programmer)
+- Klaus (3D artist)
+- Arostaky (3D artist)
+- Simone Andriulo (3D artist)
 
 ## Diversifies
+### Sponsored
+- **Sharing is caring (Sponsored by GitHub)**: Share the source code for your submission in a public GitHub repository and list the URL on your submission page.
 
 ### Accessibility
+- **Easy-read**: Ensure all text in your game is large, in a clear sans-serif font, and on plain high contrast backgrounds.
 - **Old school**: Your game’s control scheme would fit onto a 1980s joystick (d-pad + 1 button) or paddle (analogue left/right + 1 button)
 
 ### Art
