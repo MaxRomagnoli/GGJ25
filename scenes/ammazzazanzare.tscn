@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://csap6fp8mp1ss" path="res://scenes/killzone.tscn" id="2_2a5yc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1qg8x"]
+size = Vector3(0.902283, 0.473145, 0.931152)
 
 [node name="Ammazzazanzare" type="Node3D"]
 script = ExtResource("1_govdq")
@@ -15,5 +16,5 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 [node name="Killzone" parent="." instance=ExtResource("2_2a5yc")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
-transform = Transform3D(20, 0, 0, 0, 40, 0, 0, 0, 20, 0, 7, 0)
+transform = Transform3D(20, 0, 0, 0, 40, 0, 0, 0, 20, -0.0799561, 21.8704, 0.0324774)
 shape = SubResource("BoxShape3D_1qg8x")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=22 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bljyg7s2ot3wp" path="res://scenes/spawner.tscn" id="7_x8126"]
 [ext_resource type="PackedScene" uid="uid://cph5d1nise4a3" path="res://scenes/saetta.tscn" id="8_0neq2"]
 [ext_resource type="PackedScene" uid="uid://dlt31xhqteilt" path="res://scenes/menu.tscn" id="10_3bv43"]
+[ext_resource type="PackedScene" uid="uid://cqvf31mfri33r" path="res://scenes/level.tscn" id="11_8xcgm"]
+[ext_resource type="PackedScene" uid="uid://doj0jc4b6t6kx" path="res://scenes/spider_web.tscn" id="12_7w5xw"]
+[ext_resource type="PackedScene" uid="uid://b1fiif4oa2a5i" path="res://scenes/toilet.tscn" id="12_iv7n4"]
+[ext_resource type="PackedScene" uid="uid://bkjqa3wre8ebf" path="res://scenes/porta con foro.tscn" id="14_iyj8h"]
+[ext_resource type="PackedScene" uid="uid://bfxiygrfmr1gf" path="res://scenes/lavamano.tscn" id="15_yc5bg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,12 +28,6 @@ background_mode = 2
 sky = SubResource("Sky_ixbn2")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_a8tpf"]
-size = Vector2(10, 10)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qcvs2"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
 
 [sub_resource type="Resource" id="Resource_num0l"]
 script = ExtResource("4_521t4")
@@ -57,8 +56,6 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_nsqlp"]
-
 [node name="Node" type="Node3D"]
 script = ExtResource("1_hsp4a")
 
@@ -71,7 +68,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
-transform = Transform3D(0.971973, 0.0471127, -0.230325, 1.86265e-09, 0.979714, 0.200399, 0.235094, -0.194782, 0.952256, -2.52927, 2.44221, 2.18822)
+transform = Transform3D(0.971973, 0.0471123, -0.230324, -1.86265e-09, 0.979715, 0.200398, 0.235093, -0.194782, 0.952256, -2.52927, 2.44221, 2.18822)
 current = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -88,15 +85,6 @@ axis_lock_angular_z = true
 [node name="CameraTarget" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_a8tpf")
-skeleton = NodePath("../Player")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_qcvs2")
-
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "look_at_target")]
 transform = Transform3D(-0.999999, 0, 0, 0, 0.970142, 0.242536, 0, 0.242535, -0.970144, 0, 3.98171, -4)
 top_level = true
@@ -109,11 +97,11 @@ tween_resource = SubResource("Resource_num0l")
 follow_damping = true
 look_at_offset = Vector3(0, 2, 0)
 look_at_damping = true
-look_at_damping_value = 0.1
+look_at_damping_value = 0.2
 noise = SubResource("Resource_5vvbj")
 
 [node name="PhantomCamera3DMenu" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.971972, 0.0471126, -0.230325, 1.86264e-09, 0.979714, 0.200399, 0.235094, -0.194782, 0.952255, -2.52927, 2.44221, 2.18822)
+transform = Transform3D(0.971972, 0.0471123, -0.230324, -1.86264e-09, 0.979714, 0.200398, 0.235093, -0.194782, 0.952255, -2.52927, 2.44221, 2.18822)
 script = ExtResource("3_y70rt")
 priority = 1
 look_at_mode = 2
@@ -122,18 +110,32 @@ tween_resource = SubResource("Resource_6yr6m")
 look_at_offset = Vector3(-2, 1, 0)
 
 [node name="Ammazzazanzare" parent="." instance=ExtResource("6_30wm7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, -3.63889, 4)
-
-[node name="Spawner" parent="." instance=ExtResource("7_x8126")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spawner"]
-transform = Transform3D(5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0)
-mesh = SubResource("CylinderMesh_nsqlp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.3214, -14.5207, 66.4642)
 
 [node name="Saetta" parent="." instance=ExtResource("8_0neq2")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -10.0994, 0, 15.0331)
 
 [node name="Menu" parent="." instance=ExtResource("10_3bv43")]
+
+[node name="crack_house" parent="." instance=ExtResource("11_8xcgm")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 58.0681, -27.1018, 29.858)
+
+[node name="spider_web" parent="." instance=ExtResource("12_7w5xw")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 6.97225, -23.8473, 29.5222)
+
+[node name="toilet" parent="." instance=ExtResource("12_iv7n4")]
+transform = Transform3D(-1.74846e-06, 0, -40, 0, 40, 0, 40, 0, -1.74846e-06, 39.234, -27.3669, -3.66593)
+
+[node name="Spawner" parent="toilet" instance=ExtResource("7_x8126")]
+transform = Transform3D(-1.09278e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.09278e-09, 0.00727036, 0.2823, 0.164784)
+spawner_type = 3
+spawn_scale = Vector2(3, 4)
+speed_range = Vector2(1, 2)
+
+[node name="porta con foro" parent="." instance=ExtResource("14_iyj8h")]
+transform = Transform3D(-30, 2.29282e-13, 2.62268e-06, 0, -30, 2.62268e-06, 2.62268e-06, 2.62268e-06, 30, 10.9787, 37.9814, 29.9767)
+
+[node name="lavamano" parent="." instance=ExtResource("15_yc5bg")]
+transform = Transform3D(-1.31134e-06, 0, 30, 0, 30, 0, -30, 0, -1.31134e-06, -34.0352, -26.907, -0.554881)
 
 [connection signal="game_start" from="Menu" to="." method="start_game"]

@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var fire_time := Vector2(2.0, 5.0)
+@export var agro_range := float(7000.0) # meters
 @onready var player: CharacterBody3D = %Player
 
 var current_fire_time: float
@@ -14,9 +15,15 @@ func _process(delta: float) -> void:
 		fire()
 
 func fire() -> void:
+	
+	var direction: Vector3 = (self.position - player.position) #.normalized()
+	print(direction.length_squared())
+	if direction.length_squared() > agro_range:
+		return
+	
+	# TODO Fire sound
+	
 	print("FIRE")
 	var child = saetta.instantiate()
-	var direction: Vector3 = (self.position - player.position).normalized()
-	child.basis = Basis.looking_at(direction)
-	child.position += Vector3.DOWN * 20
 	add_child(child)
+	child.look_at(player.position)

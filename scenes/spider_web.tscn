@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://doj0jc4b6t6kx"]
+
+[ext_resource type="Texture2D" uid="uid://cm34td82coy52" path="res://assets/enemies/spider_web_squareweb_256px.png" id="1_8i302"]
+[ext_resource type="Script" path="res://scripts/spider_web.gd" id="1_u0l7u"]
+[ext_resource type="PackedScene" uid="uid://csap6fp8mp1ss" path="res://scenes/killzone.tscn" id="2_viyyc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgjj0"]
+resource_name = "web"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_8i302")
+metallic = 0.781818
+roughness = 0.445455
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eo3sd"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "web",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_myt8d"]
+resource_name = "spider_web_web_mesh"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_bgjj0"),
+"name": "web",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_eo3sd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kmddx"]
+size = Vector3(1.81403, 2.08032, 0.156494)
+
+[node name="spider_web" type="Node3D"]
+script = ExtResource("1_u0l7u")
+
+[node name="web" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 1.02019, 0)
+mesh = SubResource("ArrayMesh_myt8d")
+skeleton = NodePath("")
+
+[node name="Killzone" parent="." instance=ExtResource("2_viyyc")]
+vulnerability = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.063324, 0.953577, 0.00939941)
+shape = SubResource("BoxShape3D_kmddx")
+
+[connection signal="destroy_killzone" from="Killzone" to="." method="_on_killzone_destroy_killzone"]

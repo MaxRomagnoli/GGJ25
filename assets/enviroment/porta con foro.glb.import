@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://f2aw20oa4bl7"
-path="res://.godot/imported/Spider.glb-f3a230b3209770b5006c8747cf4982b3.scn"
+uid="uid://bhbju3pa483us"
+path="res://.godot/imported/porta con foro.glb-6503a8d741bc32c508e125bd86255534.scn"
 
 [deps]
 
-source_file="res://assets/enemies/Spider.glb"
-dest_files=["res://.godot/imported/Spider.glb-f3a230b3209770b5006c8747cf4982b3.scn"]
+source_file="res://assets/enviroment/porta con foro.glb"
+dest_files=["res://.godot/imported/porta con foro.glb-6503a8d741bc32c508e125bd86255534.scn"]
 
 [params]
 

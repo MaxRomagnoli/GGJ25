@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bha84htbnrypt"]
+
+[ext_resource type="AudioStream" uid="uid://chjre5udoo8qg" path="res://assets/music/zanzara idle.mp3" id="1_0sy8r"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_0sy8r")
+autoplay = true
+bus = &"SFX"
