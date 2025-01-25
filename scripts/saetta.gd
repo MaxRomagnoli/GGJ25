@@ -37,6 +37,7 @@ func _on_timer_timeout() -> void:
 	is_shrinking = true
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
+	print("Colpito " + body.name)
+	if body.name == "Player" or body.name == "Spider":
 		body.die()
 	queue_free()
