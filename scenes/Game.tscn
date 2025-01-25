@@ -670,7 +670,7 @@ transform = Transform3D(-1.09278e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.09278
 spawner_type = 3
 power_up_time = 10.0
 spawn_scale = Vector2(3, 4)
-speed_range = Vector2(1, 2)
+speed_range = Vector2(3, 5)
 
 [node name="porta con foro" parent="Enviroment" instance=ExtResource("14_iyj8h")]
 transform = Transform3D(-30, 2.29282e-13, 2.62268e-06, 0, -30, 2.62268e-06, 2.62268e-06, 2.62268e-06, 30, 16.3496, 37.9814, 29.9767)
@@ -751,6 +751,14 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Libri/Area3D"]
 transform = Transform3D(9.20737, 0, -3.90185, 0, 10, 0, 3.90185, 0, 9.20737, 1.93264, 13.1216, -3.79149)
 shape = SubResource("BoxShape3D_7mym6")
+
+[node name="SpawnerCacca" parent="." instance=ExtResource("7_x8126")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 70.4332, -25.6568, 0)
+spawner_type = 2
+power_up_time = 10000.0
+spawn_area = Vector2(10, 10)
+spawn_scale = Vector2(5, 10)
+speed_range = Vector2(10, 20)
 
 [connection signal="game_start" from="Menu" to="." method="start_game"]
 [connection signal="body_entered" from="Libri/Area3D" to="." method="fall_animation"]
