@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=38 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -8,11 +8,11 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_521t4"]
 [ext_resource type="PackedScene" uid="uid://caa3j1qu70bff" path="res://scenes/ammazzazanzare.tscn" id="6_30wm7"]
 [ext_resource type="PackedScene" uid="uid://bljyg7s2ot3wp" path="res://scenes/spawner.tscn" id="7_x8126"]
+[ext_resource type="PackedScene" uid="uid://b0l5auq4db4s7" path="res://scenes/level3.tscn" id="9_8cx0n"]
 [ext_resource type="PackedScene" uid="uid://dlt31xhqteilt" path="res://scenes/menu.tscn" id="10_3bv43"]
 [ext_resource type="PackedScene" uid="uid://doj0jc4b6t6kx" path="res://scenes/spider_web.tscn" id="12_7w5xw"]
 [ext_resource type="PackedScene" uid="uid://b1fiif4oa2a5i" path="res://scenes/toilet.tscn" id="12_iv7n4"]
 [ext_resource type="PackedScene" uid="uid://bkjqa3wre8ebf" path="res://scenes/porta con foro.tscn" id="14_iyj8h"]
-[ext_resource type="PackedScene" uid="uid://guf57hx6ya5l" path="res://scenes/level2.tscn" id="15_5yl4f"]
 [ext_resource type="PackedScene" uid="uid://bfxiygrfmr1gf" path="res://scenes/lavamano.tscn" id="15_yc5bg"]
 [ext_resource type="PackedScene" uid="uid://dk5a0ba13xsrv" path="res://scenes/finestra.tscn" id="16_m23r2"]
 [ext_resource type="PackedScene" uid="uid://b2stq87rmsgtf" path="res://scenes/porta chiusa.tscn" id="16_yndvm"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bkxws66uqea2x" path="res://scenes/spider.tscn" id="22_bt2id"]
 [ext_resource type="Script" path="res://scripts/spider.gd" id="23_1075t"]
 [ext_resource type="PackedScene" uid="uid://cjvv45p2jdd34" path="res://scenes/rat.tscn" id="25_hjxfb"]
+[ext_resource type="PackedScene" uid="uid://cta5jrrvlfuln" path="res://scenes/cheese.tscn" id="27_ccvo1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -658,7 +659,7 @@ tween_resource = SubResource("Resource_76cy2")
 
 [node name="Menu" parent="." instance=ExtResource("10_3bv43")]
 
-[node name="crack_house_v2" parent="." instance=ExtResource("15_5yl4f")]
+[node name="crack_house_v3" parent="." instance=ExtResource("9_8cx0n")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 62.5215, -27.3398, 30.028)
 
 [node name="Enviroment" type="Node" parent="."]
@@ -762,12 +763,15 @@ shape = SubResource("BoxShape3D_7mym6")
 transform = Transform3D(-3.99421, 0, -0.21513, 0, 4, 0, 0.21513, 0, -3.99421, -9.27659, -27.2458, 237.075)
 
 [node name="SpawnerCacca" parent="." instance=ExtResource("7_x8126")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 70.4332, -25.6568, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 68.7538, -25.6568, -13.0271)
 spawner_type = 2
 power_up_time = 10000.0
 spawn_area = Vector2(10, 10)
 spawn_scale = Vector2(5, 10)
 speed_range = Vector2(10, 20)
+
+[node name="cheese" parent="." instance=ExtResource("27_ccvo1")]
+transform = Transform3D(2.19919, 0, -7.69178, 0, 8, 0, 7.69178, 0, 2.19919, 70.6081, -23.9717, -12.5163)
 
 [connection signal="game_start" from="Menu" to="." method="start_game"]
 [connection signal="body_entered" from="Libri/Area3D" to="." method="fall_animation"]
