@@ -486,7 +486,7 @@ spawn_scale = Vector2(3, 4)
 speed_range = Vector2(1, 2)
 
 [node name="porta con foro" parent="Enviroment" instance=ExtResource("14_iyj8h")]
-transform = Transform3D(-30, 2.29282e-13, 2.62268e-06, 0, -30, 2.62268e-06, 2.62268e-06, 2.62268e-06, 30, 29.6852, 37.9814, 29.9767)
+transform = Transform3D(-30, 2.29282e-13, 2.62268e-06, 0, -30, 2.62268e-06, 2.62268e-06, 2.62268e-06, 30, 16.3496, 37.9814, 29.9767)
 
 [node name="spider_web" parent="Enviroment/porta con foro" instance=ExtResource("12_7w5xw")]
 transform = Transform3D(-0.233333, 0, 2.03986e-08, 1.78331e-15, -0.233333, 2.03986e-08, 2.03986e-08, 2.03986e-08, 0.233333, 0.133548, 2.06095, -0.0151508)
@@ -516,6 +516,9 @@ spawner_type = 4
 [node name="tavolo" parent="Enviroment" instance=ExtResource("21_uei0f")]
 transform = Transform3D(25.1989, 0, 50.8764, 0, 40, 0, -68.7218, 0, 18.6554, 60.1378, -30.9264, 130.956)
 
+[node name="porta con foro2" parent="Enviroment" instance=ExtResource("14_iyj8h")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 104.238, -27.1565, 29.9767)
+
 [node name="Libri" type="Node" parent="."]
 
 [node name="Ammazzazanzare" parent="Libri" instance=ExtResource("6_30wm7")]
@@ -525,7 +528,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 55.7953, -3.03309, 135.
 transform = Transform3D(2.04592, -2.19402, 0.0220081, -1.24878e-09, 0.0300912, 2.99985, -2.19413, -2.04582, 0.0205214, 47.1716, 0.794804, 158.246)
 
 [node name="Node3D2" parent="Libri" instance=ExtResource("21_ddy33")]
-transform = Transform3D(1.6952, -2.47501, 0.0248414, -1.1805e-09, 0.0301091, 2.99985, -2.47513, -1.69512, 0.0170137, 47.1716, 3.59474, 157.351)
+transform = Transform3D(1.69521, -2.47501, 0.0248414, -1.1805e-09, 0.0301091, 2.99985, -2.47514, -1.69512, 0.0170137, 47.1716, 3.59474, 157.351)
 
 [node name="Node3D3" parent="Libri" instance=ExtResource("21_ddy33")]
 transform = Transform3D(1.37157, -2.66797, 0.0267781, -1.1805e-09, 0.0301091, 2.99985, -2.6681, -1.3715, 0.0137656, 47.2934, 6.69338, 156.723)

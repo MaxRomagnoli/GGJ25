@@ -17,6 +17,7 @@ enum PlayerState { WAIT, PLAY, PAUSE, DEATH, WIN }
 @onready var camera_target: Node3D = $CameraTarget
 @onready var death_timer: Timer = $Timer
 @onready var audio_death: AudioStreamPlayer = $AudioDeath
+@onready var menu: Control = $"../Menu"
 
 var current_player_shake_frequency := 0.0
 var current_player_state = PlayerState.WAIT
@@ -30,10 +31,13 @@ func _ready() -> void:
 	material = mesh.get_active_material(0)
 
 func start() -> void:
+	menu.visible = false
 	Engine.time_scale = 1.0
 	current_player_state = PlayerState.PLAY
 
 func pause() -> void:
+	menu.visible = true
+	menu.set_focus_on_start()
 	Engine.time_scale = 0.0
 	current_player_state = PlayerState.PAUSE
 
@@ -67,11 +71,14 @@ func _process(delta: float) -> void:
 
 func _input(event) -> void:
 	
-	if current_player_state == PlayerState.PAUSE:
-		if event.is_action_pressed("toogle_pause"):
-			current_player_state = PlayerState.PLAY
-	elif current_player_state != PlayerState.PLAY:
-		# Do nothing if player is waiting
+	if event.is_action_pressed("toogle_pause"):
+		if current_player_state == PlayerState.PAUSE:
+			start()
+		else:
+			pause()
+	
+	# Do nothing if player is waiting
+	if current_player_state != PlayerState.PLAY:
 		return
 	
 	player_input = Vector2(
