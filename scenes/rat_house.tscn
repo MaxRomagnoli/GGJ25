@@ -43,9 +43,11 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nk0bc")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_subu8"]
-radius = 1.16105
+radius = 1.5432
 
-[node name="rat_house2" type="StaticBody3D"]
+[node name="Rat_house" type="Area3D"]
+collision_mask = 2
+priority = 1
 script = ExtResource("1_w8g34")
 
 [node name="rat_house" type="MeshInstance3D" parent="."]
@@ -60,3 +62,5 @@ shape = SubResource("SphereShape3D_subu8")
 transform = Transform3D(-1.80958, 7.5498e-08, 1.23714e-07, -1.3662e-07, -4.76837e-07, -1.63864, -1.3662e-07, -1, 8.79039e-07, -0.00826949, 0.697764, -0.301639)
 mesh = SubResource("ArrayMesh_rw3v6")
 skeleton = NodePath("")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

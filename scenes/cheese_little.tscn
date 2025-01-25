@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=4 uid="uid://dl2k11pd4wtvr"]
+
+[ext_resource type="Texture2D" uid="uid://bg8tl21rd8wtx" path="res://assets/enviroment/cheese_PEZZO FORMAGGIO UV_Material_BaseColor.png" id="1_tk0jf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_545h4"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_tk0jf")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k35wb"]
+_surfaces = [{
+"aabb": AABB(-0.00617083, -7.82738e-07, -0.00609863, 0.0128798, 0.011699, 0.0128798),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYAAwAGAAIAAwAHAAYABwAEAAYABwAFAAQABQADAAEABQAHAAMAAQACAAAAAQADAAIABQAAAAQABQABAAAA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("5bGC7bIoAAD//wAAAAAAACiw//+svgAA//8AAP//AABCNAWzWjEAAAAAAAAAAAAAIFa5yqy+AAAAAAAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b7amh"]
+resource_name = "cheese_Cube"
+_surfaces = [{
+"aabb": AABB(-0.00617083, -7.82738e-07, -0.00609863, 0.0128798, 0.011699, 0.0128798),
+"attribute_data": PackedByteArray("MEMHkTBDB5EwQweRxUuUSsVLlEo4AId5a20to2ttLaNrbS2jVJZhYVSWYWEhrUPP0TO3t9Ezt7fRM7e3kmIFAAUAf8flEevh7V86v+1fOr/tXzq/Ia3SFhRveP7WWfn/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgATAA0AAgAIABMACwASAAcACwAWABIAFwAOABQAFwARAA4ADwAJAAMADwAVAAkABAAGAAAABAAKAAYAEAABAAwAEAAFAAEA"),
+"material": SubResource("StandardMaterial3D_545h4"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("5bGC7bIo8u3lsYLtsijV9+Wxgu2yKDbH//8AAAAAn9z//wAAAADy7f//AAAAANb3KLD//6y+8u0osP//rL78nCiw//+svjfH//8AAP//n9z//wAA///y7f//AAD///ecQjQFs1ox1PdCNAWzWjE2x0I0BbNaMZq9AAAAAAAAn9wAAAAAAADV9wAAAAAAAJq9IFa5yqy++ZwgVrnKrL43xyBWucqsvpm9AAAAAP//n9wAAAAA///0nAAAAAD//5q9PsFZgQu9g71utGO0ty5u3T7BWYEGvYe9PsFZgduh0pBttGS0ty5u3T7BWYHhodKQFb16vXC0Y7Srpf7aty5u3Qu9g726pfra36HSkG60Y7SapQTbty5u3eSh0pCrpf7a")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k35wb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1uoip"]
+size = Vector3(1.47028, 1.22913, 1.30377)
+
+[node name="cheese" type="StaticBody3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("ArrayMesh_b7amh")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0638123, 0.57135, 0.0230408)
+shape = SubResource("BoxShape3D_1uoip")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=48 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://dwb8fhlyqt7bx" path="res://scenes/rat_house.tscn" id="27_s5e45"]
 [ext_resource type="PackedScene" uid="uid://blabq2v16cupl" path="res://scenes/boss_finale.tscn" id="29_7mxq2"]
 [ext_resource type="PackedScene" uid="uid://yaqaf6an2x46" path="res://scenes/redfly.tscn" id="30_mj64w"]
+[ext_resource type="PackedScene" uid="uid://dl2k11pd4wtvr" path="res://scenes/cheese_little.tscn" id="34_wdhop"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -75,6 +76,12 @@ transition = 0
 ease = 2
 
 [sub_resource type="Resource" id="Resource_76cy2"]
+script = ExtResource("4_521t4")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_vda0a"]
 script = ExtResource("4_521t4")
 duration = 1.0
 transition = 0
@@ -675,6 +682,11 @@ script = ExtResource("3_y70rt")
 look_at_mode = 3
 tween_resource = SubResource("Resource_76cy2")
 
+[node name="PhantomCamera3DRat" type="Node3D" parent="."]
+transform = Transform3D(0.864345, -0.0942598, 0.493987, -9.31323e-09, 0.982277, 0.187433, -0.502899, -0.162007, 0.849027, 136.813, -17.3356, 53.6584)
+script = ExtResource("3_y70rt")
+tween_resource = SubResource("Resource_vda0a")
+
 [node name="PhantomCamera3DFinal" type="Node3D" parent="."]
 transform = Transform3D(-0.71091, 0, 0.703283, 0.294135, 0.90834, 0.297325, -0.63882, 0.418232, -0.645748, 154.308, -0.932629, -21.079)
 script = ExtResource("3_y70rt")
@@ -763,8 +775,9 @@ spawn_area = Vector2(10, 10)
 spawn_scale = Vector2(5, 10)
 speed_range = Vector2(10, 20)
 
-[node name="rat_house2" parent="Enviroment" instance=ExtResource("27_s5e45")]
+[node name="Rat_house" parent="Enviroment" instance=ExtResource("27_s5e45")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 134.233, -27.5881, 32.8675)
+priority = 0
 
 [node name="Libri" type="Node" parent="."]
 
@@ -808,18 +821,24 @@ collision_layer = 3
 
 [node name="Area3D" type="Area3D" parent="Libri"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9752, 0, 162.217)
+collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Libri/Area3D"]
 transform = Transform3D(9.20737, 0, -3.90185, 0, 10, 0, 3.90185, 0, 9.20737, 1.93264, 13.1216, -3.79149)
 shape = SubResource("BoxShape3D_7mym6")
 
-[node name="rat" parent="Libri" instance=ExtResource("25_hjxfb")]
-transform = Transform3D(-3.99421, 0, -0.21513, 0, 4, 0, 0.21513, 0, -3.99421, -9.27659, -27.2458, 237.075)
+[node name="rat" parent="." node_paths=PackedStringArray("default_item") instance=ExtResource("25_hjxfb")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -9.27659, -27.2458, 61.9707)
+default_item = NodePath("../cheese")
 
 [node name="Boss_finale" parent="." instance=ExtResource("29_7mxq2")]
 transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 90.0805, -23.5534, 6.24965)
 
+[node name="cheese" parent="." instance=ExtResource("34_wdhop")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 136.269, -26.5136, 36.3229)
+
 [connection signal="game_start" from="Menu" to="." method="start_game"]
+[connection signal="rat_in_house" from="Enviroment/Rat_house" to="." method="rat_animation"]
 [connection signal="body_entered" from="Libri/Area3D" to="." method="fall_animation"]
 [connection signal="game_over" from="Boss_finale" to="." method="game_over"]

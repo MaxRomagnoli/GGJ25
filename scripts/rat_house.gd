@@ -1,11 +1,14 @@
-extends StaticBody3D
+extends Area3D
 
+signal rat_in_house
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var alredy_entered = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body: Node3D) -> void:
+	print(body.name + " entered rat house")
+	if alredy_entered == true:
+		return
+	if body.name == "rat":
+		alredy_entered = true
+		rat_in_house.emit()
+		print("Rat house emitted")

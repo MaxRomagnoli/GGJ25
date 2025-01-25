@@ -7,7 +7,7 @@ signal game_over
 #var sick_mat: Material
 #var normal_mat: Material
 
-var can_die = true # TODO Need the rat
+var can_die = false # Need the rat
 
 #func _init() -> void:
 	#sick_mat = mesh.get_active_material(4)
@@ -17,6 +17,8 @@ func set_can_die(is_it: bool) -> void:
 	can_die = is_it
 
 func _on_body_entered(body: Node3D) -> void:
+	if body.name != "Player":
+		return
 	if can_die:
 		game_over.emit()
 		animation_player.play("Die")
@@ -24,6 +26,6 @@ func _on_body_entered(body: Node3D) -> void:
 		animation_player.play("SleepMosquito")
 	#mesh.set_surface_override_material(4, sick_mat)
 
-func _on_body_exited(body: Node3D) -> void:
+func _on_body_exited(_body: Node3D) -> void:
 	animation_player.play("SleepOnly")
 	#mesh.set_surface_override_material(4, normal_mat)
