@@ -6,7 +6,7 @@ enum PlayerState { WAIT, PLAY, PAUSE, DEATH, WIN }
 @export var attacking_velocity := 15.0
 @export var superspeed_velocity := 35.0
 @export var rotation_velocity := 5.0
-@export var vertical_velocity := 10.0
+@export var vertical_velocity := 15.0
 @export var player_shake_force := Vector2(-5, 5) # meters
 @export var player_shake_frequency := Vector2(0.5, 5) # seconds
 

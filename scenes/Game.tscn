@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=37 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cccmj3hk13wbr" path="res://scenes/tavolo.tscn" id="21_uei0f"]
 [ext_resource type="PackedScene" uid="uid://bkxws66uqea2x" path="res://scenes/spider.tscn" id="22_bt2id"]
 [ext_resource type="Script" path="res://scripts/spider.gd" id="23_1075t"]
+[ext_resource type="PackedScene" uid="uid://cjvv45p2jdd34" path="res://scenes/rat.tscn" id="25_hjxfb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -719,18 +720,23 @@ visible = false
 
 [node name="Node3D" parent="Libri" instance=ExtResource("21_ddy33")]
 transform = Transform3D(2.04592, -2.19402, 0.0219987, -1.24825e-09, 0.0300784, 2.99985, -2.19413, -2.04582, 0.0205126, 47.1716, 0.794804, 158.246)
+variant = 6
 
 [node name="Node3D2" parent="Libri" instance=ExtResource("21_ddy33")]
-transform = Transform3D(1.69521, -2.47501, 0.0248408, -1.18048e-09, 0.0301084, 2.99985, -2.47514, -1.69512, 0.0170133, 47.1716, 3.59474, 157.351)
+transform = Transform3D(1.69521, -2.47501, 0.0248408, -1.18048e-09, 0.0301085, 2.99985, -2.47514, -1.69512, 0.0170133, 47.1716, 3.59474, 157.351)
+variant = 5
 
 [node name="Node3D3" parent="Libri" instance=ExtResource("21_ddy33")]
 transform = Transform3D(1.37158, -2.66797, 0.0267775, -1.18047e-09, 0.0301084, 2.99985, -2.6681, -1.37151, 0.0137654, 47.2934, 6.69338, 156.723)
+variant = 4
 
 [node name="Node3D4" parent="Libri" instance=ExtResource("21_ddy33")]
 transform = Transform3D(1.82204, -2.38319, 0.0239192, -2.86268e-09, 0.0301084, 2.99985, -2.38331, -1.82195, 0.0182863, 47.0499, 9.49332, 154.851)
+variant = 3
 
 [node name="Node3D5" parent="Libri" instance=ExtResource("21_ddy33")]
-transform = Transform3D(0.975746, -2.83294, 0.149451, -0.0247344, 0.149543, 2.99617, -2.83678, -0.975732, 0.0252816, 47.0499, 12.0811, 153.509)
+transform = Transform3D(0.975746, -2.83294, 0.149451, -0.0247344, 0.149543, 2.99617, -2.83677, -0.975732, 0.0252816, 47.0499, 12.0811, 153.509)
+variant = 2
 
 [node name="Node3D6" parent="Libri" instance=ExtResource("21_ddy33")]
 transform = Transform3D(1.25351, -2.72543, 0.027363, 0.0343555, 0.0459152, 2.99945, -2.72535, -1.25296, 0.0503962, 47.0499, 15.0707, 153.509)
@@ -751,6 +757,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Libri/Area3D"]
 transform = Transform3D(9.20737, 0, -3.90185, 0, 10, 0, 3.90185, 0, 9.20737, 1.93264, 13.1216, -3.79149)
 shape = SubResource("BoxShape3D_7mym6")
+
+[node name="rat" parent="Libri" instance=ExtResource("25_hjxfb")]
+transform = Transform3D(-3.99421, 0, -0.21513, 0, 4, 0, 0.21513, 0, -3.99421, -9.27659, -27.2458, 237.075)
 
 [node name="SpawnerCacca" parent="." instance=ExtResource("7_x8126")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 70.4332, -25.6568, 0)
