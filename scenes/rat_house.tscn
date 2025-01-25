@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwb8fhlyqt7bx"]
+
+[ext_resource type="Texture2D" uid="uid://c2mm5g4c26gd5" path="res://assets/enviroment/rat_house_mouse_house_t.png" id="1_74ci1"]
+[ext_resource type="Script" path="res://scripts/rat_house.gd" id="1_w8g34"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nttw4"]
+resource_name = "rat_house_m"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_74ci1")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nk0bc"]
+_surfaces = [{
+"aabb": AABB(-0.363536, -2.70149e-07, -0.0437785, 0.727072, 1e-05, 0.491057),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "rat_house_m",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 225, 18, 0, 0, 0, 0, 255, 255, 225, 18, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rw3v6"]
+resource_name = "rat_house_Plane_006"
+_surfaces = [{
+"aabb": AABB(-0.363536, -2.70149e-07, -0.0437785, 0.727072, 1e-05, 0.491057),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_nttw4"),
+"name": "rat_house_m",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 225, 18, 0, 0, 255, 191, 255, 255, 225, 18, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nk0bc")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_subu8"]
+radius = 1.16105
+
+[node name="rat_house2" type="StaticBody3D"]
+script = ExtResource("1_w8g34")
+
+[node name="rat_house" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.28186, 7.5498e-08, 1.52181e-07, -1.72276e-07, -4.76837e-07, -2.0157, -1.72276e-07, -1, 1.08131e-06, -0.00826949, 0.913491, -0.00690028)
+mesh = SubResource("ArrayMesh_rw3v6")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_subu8")
+
+[node name="rat_house2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.28186, 7.5498e-08, 1.52181e-07, -1.72276e-07, -4.76837e-07, -2.0157, -1.72276e-07, -1, 1.08131e-06, -0.00826949, 0.913491, -0.301639)
+mesh = SubResource("ArrayMesh_rw3v6")
+skeleton = NodePath("")

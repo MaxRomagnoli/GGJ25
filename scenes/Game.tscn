@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=41 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_q7br7"]
+[ext_resource type="AudioStream" uid="uid://djsfqoqllnfsx" path="res://assets/music/libri.mp3" id="2_0l4f6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_y70rt"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_2tsec"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_521t4"]
@@ -26,6 +27,8 @@
 [ext_resource type="Script" path="res://scripts/spider.gd" id="23_1075t"]
 [ext_resource type="PackedScene" uid="uid://cjvv45p2jdd34" path="res://scenes/rat.tscn" id="25_hjxfb"]
 [ext_resource type="PackedScene" uid="uid://cta5jrrvlfuln" path="res://scenes/cheese.tscn" id="27_ccvo1"]
+[ext_resource type="PackedScene" uid="uid://dwb8fhlyqt7bx" path="res://scenes/rat_house.tscn" id="27_s5e45"]
+[ext_resource type="PackedScene" uid="uid://blabq2v16cupl" path="res://scenes/boss_finale.tscn" id="29_7mxq2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -600,6 +603,11 @@ size = Vector3(1.12355, 0.902687, 0.47644)
 [node name="GameManager" type="Node3D"]
 script = ExtResource("1_hsp4a")
 
+[node name="AudioStreamPlayerLibri" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0l4f6")
+volume_db = 10.0
+bus = &"SFX"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mxysm")
 
@@ -736,7 +744,7 @@ transform = Transform3D(1.82204, -2.38319, 0.0239192, -2.86268e-09, 0.0301084, 2
 variant = 3
 
 [node name="Node3D5" parent="Libri" instance=ExtResource("21_ddy33")]
-transform = Transform3D(0.975746, -2.83294, 0.149451, -0.0247344, 0.149543, 2.99617, -2.83677, -0.975732, 0.0252816, 47.0499, 12.0811, 153.509)
+transform = Transform3D(0.975745, -2.83294, 0.149451, -0.0247343, 0.149543, 2.99617, -2.83677, -0.975732, 0.0252816, 47.0499, 12.0811, 153.509)
 variant = 2
 
 [node name="Node3D6" parent="Libri" instance=ExtResource("21_ddy33")]
@@ -772,6 +780,12 @@ speed_range = Vector2(10, 20)
 
 [node name="cheese" parent="." instance=ExtResource("27_ccvo1")]
 transform = Transform3D(2.19919, 0, -7.69178, 0, 8, 0, 7.69178, 0, 2.19919, 70.6081, -23.9717, -12.5163)
+
+[node name="rat_house2" parent="." instance=ExtResource("27_s5e45")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 134.233, -27.5881, 32.8675)
+
+[node name="Boss_finale" parent="." instance=ExtResource("29_7mxq2")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 90.0805, -23.5534, 6.24965)
 
 [connection signal="game_start" from="Menu" to="." method="start_game"]
 [connection signal="body_entered" from="Libri/Area3D" to="." method="fall_animation"]

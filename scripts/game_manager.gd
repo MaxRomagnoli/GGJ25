@@ -7,6 +7,7 @@ extends Node3D
 @onready var books_animation: AnimationPlayer = $Libri/AnimationPlayer
 @onready var trigger_books_animation: Area3D = $Libri/Area3D
 @onready var ammazzazanzare: Node3D = $Libri/Ammazzazanzare
+@onready var audio_libri: AudioStreamPlayer = $AudioStreamPlayerLibri
 
 func start_game() -> void:
 	main_camera.priority = 1
@@ -16,6 +17,7 @@ func start_game() -> void:
 
 func fall_animation(body: Node3D) -> void:
 	if player.current_power_up == BubbleType.PowerType.SPEED:
+		audio_libri.play()
 		player.set_power_up(BubbleType.PowerType.NONE, 0)
 		player.wait()
 		ammazzazanzare.in_animation = true
