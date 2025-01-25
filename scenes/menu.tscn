@@ -36,6 +36,7 @@ theme_override_colors/font_pressed_color = Color(0.461028, 1, 0.429352, 1)
 theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.568627)
 theme_override_constants/outline_size = 16
+theme_override_constants/h_separation = 32
 theme_override_font_sizes/font_size = 64
 text = "START"
 
@@ -50,6 +51,7 @@ theme_override_colors/font_pressed_color = Color(0.461028, 1, 0.429352, 1)
 theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.568627)
 theme_override_constants/outline_size = 16
+theme_override_constants/h_separation = 32
 theme_override_font_sizes/font_size = 64
 text = "OPTIONS"
 
@@ -64,6 +66,7 @@ theme_override_colors/font_pressed_color = Color(0.461028, 1, 0.429352, 1)
 theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.568627)
 theme_override_constants/outline_size = 16
+theme_override_constants/h_separation = 32
 theme_override_font_sizes/font_size = 64
 text = "CREDITS"
 
@@ -78,10 +81,12 @@ theme_override_colors/font_pressed_color = Color(0.461028, 1, 0.429352, 1)
 theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.568627)
 theme_override_constants/outline_size = 16
+theme_override_constants/h_separation = 32
 theme_override_font_sizes/font_size = 64
 text = "QUIT"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
@@ -147,7 +152,6 @@ theme_override_font_sizes/font_size = 64
 text = "BACK"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
@@ -172,10 +176,10 @@ layout_mode = 2
 size_flags_vertical = 7
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 32
-text = "Max Romagnoli ( Programmer )
+text = "@MaxRomagnoli ( Programmer )
 Zibbo Dry Bone ( Audio Design )
 Core Diz ( Audio Design )
-Klaus ( 3D Artist )
+@DevKlaus ( 3D Artist )
 Arostaky ( 3D Artist )
 Simone Andriulo ( 3D Artist )"
 horizontal_alignment = 1

@@ -35,6 +35,9 @@ func start() -> void:
 	Engine.time_scale = 1.0
 	current_player_state = PlayerState.PLAY
 
+func wait() -> void:
+	current_player_state = PlayerState.WAIT
+
 func pause() -> void:
 	menu.visible = true
 	menu.set_focus_on_start()

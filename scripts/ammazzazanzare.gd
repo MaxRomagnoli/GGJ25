@@ -8,10 +8,13 @@ extends Node3D
 
 var current_fire_time: float
 var saetta = preload("res://scenes/saetta.tscn")
+var in_animation = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (current_fire_time <= 0):
+	if in_animation:
+		return
+	if current_fire_time <= 0:
 		fire()
 	else:
 		current_fire_time -= delta
