@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctf5dbh7npxsb"
-path.s3tc="res://.godot/imported/crack_house_v2_Brick 12 - 256x256.png-88ec7dcf4bc88f05236e35f1e271dc88.s3tc.ctex"
+uid="uid://cf75f73k4txnb"
+path.s3tc="res://.godot/imported/Capo_finale_Synth-Leather_08-256x256.png-1cbf51542cc8678ff32a91449b695c5f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6cfdf17943f68e6d24a3fcd4ac95fbd1"
+"md5": "62c581526f6b0d815e8fd7cb186d37fb"
 }
 
 [deps]
 
-source_file="res://assets/crackhouse/crack_house_v2_Brick 12 - 256x256.png"
-dest_files=["res://.godot/imported/crack_house_v2_Brick 12 - 256x256.png-88ec7dcf4bc88f05236e35f1e271dc88.s3tc.ctex"]
+source_file="res://assets/enemies/human/Capo_finale_Synth-Leather_08-256x256.png"
+dest_files=["res://.godot/imported/Capo_finale_Synth-Leather_08-256x256.png-1cbf51542cc8678ff32a91449b695c5f.s3tc.ctex"]
 
 [params]
 

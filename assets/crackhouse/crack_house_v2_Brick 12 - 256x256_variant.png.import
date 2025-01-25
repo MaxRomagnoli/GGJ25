@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctf5dbh7npxsb"
-path.s3tc="res://.godot/imported/crack_house_v2_Brick 12 - 256x256.png-88ec7dcf4bc88f05236e35f1e271dc88.s3tc.ctex"
+uid="uid://b5l0ef7jb8xyb"
+path.s3tc="res://.godot/imported/crack_house_v2_Brick 12 - 256x256_variant.png-384c8ab4f923a9a564c8ced721e2dd0b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6cfdf17943f68e6d24a3fcd4ac95fbd1"
+"md5": "238006c097c6ca4ca5c9d18e329413de"
 }
 
 [deps]
 
-source_file="res://assets/crackhouse/crack_house_v2_Brick 12 - 256x256.png"
-dest_files=["res://.godot/imported/crack_house_v2_Brick 12 - 256x256.png-88ec7dcf4bc88f05236e35f1e271dc88.s3tc.ctex"]
+source_file="res://assets/crackhouse/crack_house_v2_Brick 12 - 256x256_variant.png"
+dest_files=["res://.godot/imported/crack_house_v2_Brick 12 - 256x256_variant.png-384c8ab4f923a9a564c8ced721e2dd0b.s3tc.ctex"]
 
 [params]
 
