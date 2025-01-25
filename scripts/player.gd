@@ -17,6 +17,7 @@ enum PlayerState { WAIT, PLAY, PAUSE, DEATH, WIN }
 @onready var camera_target: Node3D = $CameraTarget
 @onready var death_timer: Timer = $Timer
 @onready var audio_death: AudioStreamPlayer = $AudioDeath
+@onready var audio_power_up: AudioStreamPlayer = $AudioPowerUp
 @onready var menu: Control = $"../Menu"
 
 var current_player_shake_frequency := 0.0
@@ -111,6 +112,8 @@ func attack(attacking: bool, vibrate: bool) -> void:
 			Input.stop_joy_vibration(0)
 
 func set_power_up(power_up: BubbleType.PowerType, power_up_time: float) -> void:
+	if current_power_up != power_up and power_up != BubbleType.PowerType.NONE:
+		audio_power_up.play()
 	current_power_up = power_up
 	current_power_up_time = power_up_time
 	material.albedo_color = BubbleType.get_color(power_up)

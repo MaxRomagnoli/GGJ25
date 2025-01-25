@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=46 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://caa3j1qu70bff" path="res://scenes/ammazzazanzare.tscn" id="6_30wm7"]
 [ext_resource type="PackedScene" uid="uid://bljyg7s2ot3wp" path="res://scenes/spawner.tscn" id="7_x8126"]
 [ext_resource type="PackedScene" uid="uid://b0l5auq4db4s7" path="res://scenes/level3.tscn" id="9_8cx0n"]
+[ext_resource type="PackedScene" uid="uid://4ks4lv23wuwc" path="res://scenes/final_menu.tscn" id="9_swtiq"]
 [ext_resource type="PackedScene" uid="uid://dlt31xhqteilt" path="res://scenes/menu.tscn" id="10_3bv43"]
 [ext_resource type="PackedScene" uid="uid://doj0jc4b6t6kx" path="res://scenes/spider_web.tscn" id="12_7w5xw"]
 [ext_resource type="PackedScene" uid="uid://b1fiif4oa2a5i" path="res://scenes/toilet.tscn" id="12_iv7n4"]
@@ -24,11 +25,14 @@
 [ext_resource type="PackedScene" uid="uid://7xlcd3ino40q" path="res://scenes/saetta_simple.tscn" id="21_fusag"]
 [ext_resource type="PackedScene" uid="uid://cccmj3hk13wbr" path="res://scenes/tavolo.tscn" id="21_uei0f"]
 [ext_resource type="PackedScene" uid="uid://bkxws66uqea2x" path="res://scenes/spider.tscn" id="22_bt2id"]
+[ext_resource type="PackedScene" uid="uid://doaqjptnbuvy5" path="res://scenes/garbage.tscn" id="22_pmx2n"]
 [ext_resource type="Script" path="res://scripts/spider.gd" id="23_1075t"]
+[ext_resource type="PackedScene" uid="uid://rlh03uqios2c" path="res://scenes/tv.tscn" id="23_sv5c2"]
 [ext_resource type="PackedScene" uid="uid://cjvv45p2jdd34" path="res://scenes/rat.tscn" id="25_hjxfb"]
 [ext_resource type="PackedScene" uid="uid://cta5jrrvlfuln" path="res://scenes/cheese.tscn" id="27_ccvo1"]
 [ext_resource type="PackedScene" uid="uid://dwb8fhlyqt7bx" path="res://scenes/rat_house.tscn" id="27_s5e45"]
 [ext_resource type="PackedScene" uid="uid://blabq2v16cupl" path="res://scenes/boss_finale.tscn" id="29_7mxq2"]
+[ext_resource type="PackedScene" uid="uid://yaqaf6an2x46" path="res://scenes/redfly.tscn" id="30_mj64w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -71,6 +75,12 @@ transition = 0
 ease = 2
 
 [sub_resource type="Resource" id="Resource_76cy2"]
+script = ExtResource("4_521t4")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_dainl"]
 script = ExtResource("4_521t4")
 duration = 1.0
 transition = 0
@@ -614,7 +624,7 @@ environment = SubResource("Environment_mxysm")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
-sky_mode = 2
+sky_mode = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 2
@@ -665,7 +675,15 @@ script = ExtResource("3_y70rt")
 look_at_mode = 3
 tween_resource = SubResource("Resource_76cy2")
 
+[node name="PhantomCamera3DFinal" type="Node3D" parent="."]
+transform = Transform3D(-0.71091, 0, 0.703283, 0.294135, 0.90834, 0.297325, -0.63882, 0.418232, -0.645748, 154.308, -0.932629, -21.079)
+script = ExtResource("3_y70rt")
+tween_resource = SubResource("Resource_dainl")
+
 [node name="Menu" parent="." instance=ExtResource("10_3bv43")]
+
+[node name="Menu_Game_Over" parent="." instance=ExtResource("9_swtiq")]
+visible = false
 
 [node name="crack_house_v3" parent="." instance=ExtResource("9_8cx0n")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 62.5215, -27.3398, 30.028)
@@ -707,7 +725,7 @@ transform = Transform3D(18.1714, 0, 35.6342, 0, 40, 0, -35.6342, 0, 18.1714, 29.
 transform = Transform3D(-34.0262, -0.0298187, -21.0289, 0.00247118, 40, -0.0607176, 21.0289, -0.0529489, -34.0261, 72.9073, -27.4155, 158.128)
 
 [node name="bicchiere" parent="Enviroment" instance=ExtResource("20_ax4rj")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 31.0847, -10.7163, 126.943)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 31.0847, -10.7163, 126.943)
 
 [node name="Spawner" parent="Enviroment/bicchiere" instance=ExtResource("7_x8126")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.84229, 0)
@@ -718,6 +736,35 @@ transform = Transform3D(25.1989, 0, 50.8764, 0, 40, 0, -68.7218, 0, 18.6554, 60.
 
 [node name="porta con foro2" parent="Enviroment" instance=ExtResource("14_iyj8h")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 104.238, -27.1565, 29.9767)
+
+[node name="redfly" parent="Enviroment" instance=ExtResource("30_mj64w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8582, -8.03273, 132.045)
+
+[node name="garbage" parent="Enviroment" instance=ExtResource("22_pmx2n")]
+transform = Transform3D(3.37974, 0, 2.13947, 0, 4, 0, -2.13947, 0, 3.37974, 150.676, -20.8023, 257.941)
+
+[node name="garbage2" parent="Enviroment" instance=ExtResource("22_pmx2n")]
+transform = Transform3D(3.36703, -2.08113, 0.576239, -0.516303, 0.260595, 3.95797, -2.0968, -3.40602, -0.049266, 150.676, -25.0478, 239.955)
+
+[node name="garbage3" parent="Enviroment" instance=ExtResource("22_pmx2n")]
+transform = Transform3D(3.78552, 0, -1.29223, 0, 3.50169, 0, 1.29223, 0, 3.78552, 135.807, -21.1041, 260.969)
+
+[node name="TV2" parent="Enviroment" instance=ExtResource("23_sv5c2")]
+transform = Transform3D(4.68592, 0, 1.74417, 0, 5, 0, -1.74417, 0, 4.68592, 110.51, -16.5951, 242.248)
+
+[node name="cheese" parent="Enviroment" instance=ExtResource("27_ccvo1")]
+transform = Transform3D(2.19919, 0, -7.69178, 0, 8, 0, 7.69178, 0, 2.19919, 70.6081, -25.4478, -12.5163)
+
+[node name="SpawnerCacca" parent="Enviroment/cheese" instance=ExtResource("7_x8126")]
+transform = Transform3D(0.0085906, 0, 0.030046, 0, 0.03125, 0, -0.030046, 0, 0.0085906, -0.1251, -0.210641, 0.205308)
+spawner_type = 2
+power_up_time = 10000.0
+spawn_area = Vector2(10, 10)
+spawn_scale = Vector2(5, 10)
+speed_range = Vector2(10, 20)
+
+[node name="rat_house2" parent="Enviroment" instance=ExtResource("27_s5e45")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 134.233, -27.5881, 32.8675)
 
 [node name="Libri" type="Node" parent="."]
 
@@ -732,7 +779,7 @@ transform = Transform3D(2.04592, -2.19402, 0.0219987, -1.24825e-09, 0.0300784, 2
 variant = 6
 
 [node name="Node3D2" parent="Libri" instance=ExtResource("21_ddy33")]
-transform = Transform3D(1.69521, -2.47501, 0.0248408, -1.18048e-09, 0.0301085, 2.99985, -2.47514, -1.69512, 0.0170133, 47.1716, 3.59474, 157.351)
+transform = Transform3D(1.69521, -2.47502, 0.0248408, -1.18048e-09, 0.0301085, 2.99985, -2.47514, -1.69512, 0.0170133, 47.1716, 3.59474, 157.351)
 variant = 5
 
 [node name="Node3D3" parent="Libri" instance=ExtResource("21_ddy33")]
@@ -770,22 +817,9 @@ shape = SubResource("BoxShape3D_7mym6")
 [node name="rat" parent="Libri" instance=ExtResource("25_hjxfb")]
 transform = Transform3D(-3.99421, 0, -0.21513, 0, 4, 0, 0.21513, 0, -3.99421, -9.27659, -27.2458, 237.075)
 
-[node name="SpawnerCacca" parent="." instance=ExtResource("7_x8126")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 68.7538, -25.6568, -13.0271)
-spawner_type = 2
-power_up_time = 10000.0
-spawn_area = Vector2(10, 10)
-spawn_scale = Vector2(5, 10)
-speed_range = Vector2(10, 20)
-
-[node name="cheese" parent="." instance=ExtResource("27_ccvo1")]
-transform = Transform3D(2.19919, 0, -7.69178, 0, 8, 0, 7.69178, 0, 2.19919, 70.6081, -23.9717, -12.5163)
-
-[node name="rat_house2" parent="." instance=ExtResource("27_s5e45")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 134.233, -27.5881, 32.8675)
-
 [node name="Boss_finale" parent="." instance=ExtResource("29_7mxq2")]
 transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 90.0805, -23.5534, 6.24965)
 
 [connection signal="game_start" from="Menu" to="." method="start_game"]
 [connection signal="body_entered" from="Libri/Area3D" to="." method="fall_animation"]
+[connection signal="game_over" from="Boss_finale" to="." method="game_over"]

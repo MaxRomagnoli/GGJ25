@@ -49,7 +49,7 @@ radius = 1.16105
 script = ExtResource("1_w8g34")
 
 [node name="rat_house" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.28186, 7.5498e-08, 1.52181e-07, -1.72276e-07, -4.76837e-07, -2.0157, -1.72276e-07, -1, 1.08131e-06, -0.00826949, 0.913491, -0.00690028)
+transform = Transform3D(-1.80958, 7.5498e-08, 1.23714e-07, -1.3662e-07, -4.76837e-07, -1.63864, -1.3662e-07, -1, 8.79039e-07, -0.00826949, 0.697764, -0.00690028)
 mesh = SubResource("ArrayMesh_rw3v6")
 skeleton = NodePath("")
 
@@ -57,6 +57,6 @@ skeleton = NodePath("")
 shape = SubResource("SphereShape3D_subu8")
 
 [node name="rat_house2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.28186, 7.5498e-08, 1.52181e-07, -1.72276e-07, -4.76837e-07, -2.0157, -1.72276e-07, -1, 1.08131e-06, -0.00826949, 0.913491, -0.301639)
+transform = Transform3D(-1.80958, 7.5498e-08, 1.23714e-07, -1.3662e-07, -4.76837e-07, -1.63864, -1.3662e-07, -1, 8.79039e-07, -0.00826949, 0.697764, -0.301639)
 mesh = SubResource("ArrayMesh_rw3v6")
 skeleton = NodePath("")

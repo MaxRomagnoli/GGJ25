@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://bkxws66uqea2x"]
+[gd_scene load_steps=19 format=4 uid="uid://bkxws66uqea2x"]
 
 [ext_resource type="Script" path="res://scripts/spider.gd" id="1_hlctn"]
 [ext_resource type="Texture2D" uid="uid://cm34td82coy52" path="res://assets/enemies/spider_web_squareweb_256px.png" id="2_75esf"]
 [ext_resource type="AudioStream" uid="uid://dnj6r7sff6i3x" path="res://assets/music/ragno.mp3" id="3_0mmds"]
+[ext_resource type="AudioStream" uid="uid://bbbg1h1qwiq4k" path="res://assets/music/spider death.mp3" id="4_jbac0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dty6m"]
 resource_name = "Material"
@@ -1982,7 +1983,12 @@ skeleton = NodePath("")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0mmds")
-volume_db = 10.0
+volume_db = 7.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jbac0")
+volume_db = 15.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

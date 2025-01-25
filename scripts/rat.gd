@@ -51,8 +51,14 @@ func _process(delta: float) -> void:
 	if current_sound_frequency <= 0:
 		play_sound()
 	
+	# Rotation # TODO
+	#var target = Vector3(player.position.x, 0, player.position.z)
+	#look_at(target, Vector3.UP)
+	#rotate_y(0)
+	#rotate_y()
+	
 	# Move forward
-	position += (global_transform.basis * Vector3.BACK).normalized() * delta * get_speed()
+	position += (global_transform.basis * Vector3.FORWARD).normalized() * delta * get_speed()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	print("Rat collided " + body.name)
@@ -64,5 +70,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	print("Rat lost as follower")
-	follow_player = false
-	animation_player.play("Rat_Walk")
+	if body.name == "Player":
+		follow_player = false
+		animation_player.play("Rat_Walk")

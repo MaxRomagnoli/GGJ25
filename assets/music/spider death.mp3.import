@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbbg1h1qwiq4k"
+path="res://.godot/imported/spider death.mp3-5d590c3a6ab301c2db212ceee6a87d49.mp3str"
+
+[deps]
+
+source_file="res://assets/music/spider death.mp3"
+dest_files=["res://.godot/imported/spider death.mp3-5d590c3a6ab301c2db212ceee6a87d49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
