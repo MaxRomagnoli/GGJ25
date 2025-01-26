@@ -1052,7 +1052,7 @@ size = Vector3(10.7295, 0.465988, 15.9038)
 size = Vector3(11.7029, 4.22455, 1.70972)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_06gj6"]
-size = Vector3(0.309341, 4.22803, 2.77307)
+size = Vector3(0.309341, 4.22803, 3.56787)
 
 [node name="crack_house_v2" type="Node3D"]
 
@@ -1190,5 +1190,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.722046, 1.32999, 12.5446)
 shape = SubResource("BoxShape3D_bqqor")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Colliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.409447, 1.20044, -1.35455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.409447, 1.20044, -1.74658)
 shape = SubResource("BoxShape3D_06gj6")

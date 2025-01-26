@@ -1,13 +1,13 @@
 extends Control
 
+signal game_start
+
 @onready var start_button: Button = $VBoxContainer/StartButton
 @onready var back_button: Button = $VBoxContainer2/BackButton
 @onready var back_button_2: Button = $VBoxContainer3/BackButton
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var v_box_container_2: VBoxContainer = $VBoxContainer2
 @onready var v_box_container_3: VBoxContainer = $VBoxContainer3
-
-signal game_start
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

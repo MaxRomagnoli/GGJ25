@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://m74c1c4au2xt"]
+
+[ext_resource type="Script" path="res://scripts/bubble_collectable.gd" id="1_kyvvc"]
+[ext_resource type="Material" uid="uid://dsio66stivpse" path="res://materials/bubble.tres" id="2_askr2"]
+[ext_resource type="AudioStream" uid="uid://cuxq4e6qngmbq" path="res://assets/music/collected.mp3" id="3_cpiga"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g04oj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3n8iw"]
+material = ExtResource("2_askr2")
+radial_segments = 8
+rings = 8
+
+[node name="Bubble collectable" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_kyvvc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_g04oj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_3n8iw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cpiga")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -731,6 +731,15 @@ transform = Transform3D(-1.31134e-06, 0, 30, 0, 30, 0, -30, 0, -1.31134e-06, -29
 [node name="Finestra" parent="Enviroment" instance=ExtResource("16_m23r2")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 9.87897, -2.64263, -27.3103)
 
+[node name="Finestra2" parent="Enviroment" instance=ExtResource("16_m23r2")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 107.831, -2.64263, -27.3103)
+
+[node name="Finestra3" parent="Enviroment" instance=ExtResource("16_m23r2")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 107.831, -2.64263, 265.063)
+
+[node name="Finestra4" parent="Enviroment" instance=ExtResource("16_m23r2")]
+transform = Transform3D(-1.31134e-06, 0, 30, 0, 30, 0, -30, 0, -1.31134e-06, -34.5829, -2.64263, 131.935)
+
 [node name="porta chiusa" parent="Enviroment" instance=ExtResource("16_yndvm")]
 transform = Transform3D(-1.31134e-06, 0, 30, 0, 30, 0, -30, 0, -1.31134e-06, -36.0976, -27.5055, 62.7341)
 
@@ -869,6 +878,25 @@ power_up_time = 3.0
 spawn_area = Vector2(10, 10)
 spawn_scale = Vector2(10, 20)
 speed_range = Vector2(6, 10)
+
+[node name="LabelBubbles" type="Label" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -399.0
+offset_top = -75.0
+offset_right = -3.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 6
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "BUBBLES → 0"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="PhantomCamera3DRat/Timer" to="." method="rat_animation_timeout"]
 [connection signal="game_start" from="Menu" to="." method="start_game"]
