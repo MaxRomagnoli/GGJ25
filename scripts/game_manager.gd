@@ -25,7 +25,7 @@ var bubbles : int = 0
 
 func add_bubble_score() -> void:
 	bubbles += 1
-	label_bubbles.text = "BUBBLES → " + str(bubbles)
+	label_bubbles.text = "BUBBLES → " + str(bubbles) + "/10"
 
 func start_game() -> void:
 	
