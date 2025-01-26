@@ -75,6 +75,10 @@ func _process(delta: float) -> void:
 
 func _input(event) -> void:
 	
+	# In animation
+	if current_player_state == PlayerState.WAIT:
+		return
+	
 	if event.is_action_pressed("toogle_pause"):
 		if current_player_state == PlayerState.PAUSE:
 			start()
@@ -112,7 +116,8 @@ func attack(attacking: bool, vibrate: bool) -> void:
 			Input.stop_joy_vibration(0)
 
 func set_power_up(power_up: BubbleType.PowerType, power_up_time: float) -> void:
-	if current_power_up != power_up and power_up != BubbleType.PowerType.NONE:
+	
+	if power_up != BubbleType.PowerType.NONE and current_power_up != power_up:
 		audio_power_up.play()
 	current_power_up = power_up
 	current_power_up_time = power_up_time

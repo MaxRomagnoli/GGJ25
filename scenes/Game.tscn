@@ -1,9 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=56 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_q7br7"]
 [ext_resource type="AudioStream" uid="uid://djsfqoqllnfsx" path="res://assets/music/libri.mp3" id="2_0l4f6"]
+[ext_resource type="AudioStream" uid="uid://0mcc5jobl2ks" path="res://assets/music/agony.mp3" id="3_lw8i4"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_y70rt"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="4_2tsec"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_521t4"]
@@ -38,6 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://dl2k11pd4wtvr" path="res://scenes/cheese_little.tscn" id="34_wdhop"]
 [ext_resource type="PackedScene" uid="uid://dkkwcmr8gbv5e" path="res://scenes/fridge.tscn" id="37_4y0jb"]
 [ext_resource type="PackedScene" uid="uid://b1l1rupmi4uwi" path="res://scenes/lavandino.tscn" id="38_g8afb"]
+[ext_resource type="PackedScene" uid="uid://blx8qn6jdrbgx" path="res://scenes/NARGHILE.tscn" id="40_82oid"]
+[ext_resource type="PackedScene" uid="uid://bxc5sl863aana" path="res://scenes/poltrona.tscn" id="41_ee2v5"]
+[ext_resource type="PackedScene" uid="uid://m74c1c4au2xt" path="res://scenes/bubble_collectable.tscn" id="42_3nm1q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -629,6 +633,11 @@ stream = ExtResource("2_0l4f6")
 volume_db = 10.0
 bus = &"SFX"
 
+[node name="AudioStreamPlayerAgony" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lw8i4")
+volume_db = 10.0
+bus = &"SFX"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mxysm")
 
@@ -769,16 +778,13 @@ transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 104.238, -27.1565, 29.9767
 transform = Transform3D(0.246864, 0, 0.96905, 0, 1, 0, -0.96905, 0, 0.246864, 24.8173, 3.16596, 248.791)
 
 [node name="garbage" parent="Enviroment" instance=ExtResource("22_pmx2n")]
-transform = Transform3D(3.37974, 0, 2.13947, 0, 4, 0, -2.13947, 0, 3.37974, 150.676, -20.8023, 257.941)
+transform = Transform3D(5.67983, 0, 1.93379, 0.548449, 5.03826, -1.61088, -1.85438, 1.49011, 5.44661, 143.299, -22.4026, 253.395)
 
 [node name="garbage2" parent="Enviroment" instance=ExtResource("22_pmx2n")]
-transform = Transform3D(3.36703, -2.08113, 0.576239, -0.516303, 0.260595, 3.95797, -2.0968, -3.40602, -0.049266, 150.676, -25.0478, 239.955)
+transform = Transform3D(5.64631, -1.61076, 0.857652, -0.774454, 0.342291, 5.93695, -1.87602, -4.98927, 0.130418, 152.038, -25.0478, 199.49)
 
 [node name="garbage3" parent="Enviroment" instance=ExtResource("22_pmx2n")]
-transform = Transform3D(3.78552, 0, -1.29223, 0, 3.50169, 0, 1.29223, 0, 3.78552, 135.807, -21.1041, 260.969)
-
-[node name="TV2" parent="Enviroment" instance=ExtResource("23_sv5c2")]
-transform = Transform3D(4.68592, 0, 1.74417, 0, 5, 0, -1.74417, 0, 4.68592, 110.51, -16.5951, 242.248)
+transform = Transform3D(0.288272, -1.56647, -5.71986, 0.0654886, 5.015, -1.78784, 5.99271, 0.0205487, 0.294684, 116.647, -23.5903, 249.266)
 
 [node name="cheese" parent="Enviroment" instance=ExtResource("27_ccvo1")]
 transform = Transform3D(2.19919, 0, -7.69178, 0, 8, 0, 7.69178, 0, 2.19919, 70.6081, -25.4478, -12.5163)
@@ -810,6 +816,9 @@ transform = Transform3D(-0.590185, 0, 19.9913, 0, 20, 0, -19.9913, 0, -0.590185,
 [node name="redfly2" parent="Enviroment" instance=ExtResource("30_mj64w")]
 transform = Transform3D(0.190911, -0.623835, 0.75788, -0.969045, 0.00335104, 0.246862, -0.156541, -0.781549, -0.603884, 7.45747, 0.399134, 248.791)
 
+[node name="TV2" parent="Enviroment" instance=ExtResource("23_sv5c2")]
+transform = Transform3D(4.03047, 0, 2.95894, 0, 5, 0, -2.95894, 0, 4.03047, 131.969, -15.7625, 220.631)
+
 [node name="Libri" type="Node" parent="."]
 
 [node name="Ammazzazanzare" parent="Libri" instance=ExtResource("6_30wm7")]
@@ -835,7 +844,7 @@ transform = Transform3D(1.82204, -2.38319, 0.0239192, -2.86268e-09, 0.0301084, 2
 variant = 3
 
 [node name="Node3D5" parent="Libri" instance=ExtResource("21_ddy33")]
-transform = Transform3D(0.975745, -2.83294, 0.149451, -0.0247343, 0.149543, 2.99617, -2.83677, -0.975732, 0.0252816, 47.0499, 12.0811, 153.509)
+transform = Transform3D(0.975744, -2.83294, 0.149451, -0.0247343, 0.149542, 2.99617, -2.83677, -0.975731, 0.0252816, 47.0499, 12.0811, 153.509)
 variant = 2
 
 [node name="Node3D6" parent="Libri" instance=ExtResource("21_ddy33")]
@@ -860,7 +869,7 @@ transform = Transform3D(9.20737, 0, -3.90185, 0, 10, 0, 3.90185, 0, 9.20737, 1.9
 shape = SubResource("BoxShape3D_7mym6")
 
 [node name="rat" parent="." node_paths=PackedStringArray("default_item", "house", "crack_head") instance=ExtResource("25_hjxfb")]
-transform = Transform3D(0.693906, 0, -3.93935, 0, 4, 0, 3.93935, 0, 0.693906, 130.298, -27.2458, 194.082)
+transform = Transform3D(0.693906, 0, -3.93935, 0, 4, 0, 3.93935, 0, 0.693906, 121.703, -27.2458, 140.526)
 default_item = NodePath("../cheese")
 house = NodePath("../Enviroment/Rat_house")
 crack_head = NodePath("../Enviroment/bed")
@@ -869,34 +878,75 @@ crack_head = NodePath("../Enviroment/bed")
 transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 90.0805, -23.5534, 6.24965)
 
 [node name="cheese" parent="." instance=ExtResource("34_wdhop")]
-transform = Transform3D(0.867382, 0, -4.92419, 0, 5, 0, 4.92419, 0, 0.867382, 130.198, -27.5201, 220.464)
-
-[node name="SpawnerCacca" parent="cheese" instance=ExtResource("7_x8126")]
-transform = Transform3D(0.0085906, 0, 0.030046, 0, 0.03125, 0, -0.030046, 0, 0.0085906, -0.1251, -0.210641, 0.205308)
-spawner_type = 2
-power_up_time = 3.0
-spawn_area = Vector2(10, 10)
-spawn_scale = Vector2(10, 20)
-speed_range = Vector2(6, 10)
+transform = Transform3D(0.867382, 0, -4.92419, 0, 5, 0, 4.92419, 0, 0.867382, 121.603, -27.5201, 189.67)
 
 [node name="LabelBubbles" type="Label" parent="."]
-visible = false
+unique_name_in_owner = true
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -399.0
-offset_top = -75.0
-offset_right = -3.0
-offset_bottom = -1.0
+offset_left = -513.0
+offset_top = -93.0
+offset_right = -27.0
+offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 6
 theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 42
 text = "BUBBLES → 0"
-horizontal_alignment = 1
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="NARGHILE2" parent="." instance=ExtResource("40_82oid")]
+transform = Transform3D(7.55213, 0, 6.55479, 0, 10, 0, -6.55479, 0, 7.55213, 66.376, -26.1922, 16.8412)
+
+[node name="POLTRONA" parent="." instance=ExtResource("41_ee2v5")]
+transform = Transform3D(-19.9423, -0.000280963, 1.51856, -0.000274278, 20, 9.84859e-05, -1.51856, 7.73789e-05, -19.9423, 85.7372, -26.1922, 246.746)
+
+[node name="Collectables" type="Node" parent="."]
+
+[node name="Bubble collectable" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -26.295, 3.75036, -0.152861)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable2" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -26.295, 24.8845, 199.245)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable3" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -20.0525, 10.9175, 223.53)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable4" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, 147.483, -2.39779, 239.81)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable5" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, 66.3593, -1.84353, 16.6826)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable6" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, 54.5414, 8.7835, 257.243)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable7" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -28.6879, -9.09843, 260.379)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable8" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, 64.2598, -9.42222, 128.746)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable9" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, -27.6781, 27.9139, 41.5456)
+game_manager = NodePath("../..")
+
+[node name="Bubble collectable10" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, 61.583, 31.4743, 136.393)
+game_manager = NodePath("../..")
 
 [connection signal="timeout" from="PhantomCamera3DRat/Timer" to="." method="rat_animation_timeout"]
 [connection signal="game_start" from="Menu" to="." method="start_game"]

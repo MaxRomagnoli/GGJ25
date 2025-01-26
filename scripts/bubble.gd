@@ -1,6 +1,7 @@
 extends Area3D
 
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+#@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: MeshInstance3D = $BOLLA
 
 var current_speed: float
 var current_power_up_time: float

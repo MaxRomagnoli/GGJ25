@@ -9,3 +9,6 @@ extends Control
 
 func reload_game() -> void:
 	get_tree().reload_current_scene()
+
+func _on_quit_button_button_up() -> void:
+	get_tree().quit()

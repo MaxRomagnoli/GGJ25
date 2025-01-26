@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bvstd0hyennty"
+path.s3tc="res://.godot/imported/NARGHILE_NARGHILE_UV_ceramica_BaseColor.png-db267ab269beadde11f7560259a9653c.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "0489e01247f7d23654883303fa6a2072"
+}
+
+[deps]
+
+source_file="res://assets/enviroment/NARGHILE_NARGHILE_UV_ceramica_BaseColor.png"
+dest_files=["res://.godot/imported/NARGHILE_NARGHILE_UV_ceramica_BaseColor.png-db267ab269beadde11f7560259a9653c.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

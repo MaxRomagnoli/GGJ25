@@ -10,17 +10,22 @@ extends Node3D
 @onready var game_over_camera: PhantomCamera3D = $PhantomCamera3DFinal
 @onready var rat_camera_timer: Timer = $PhantomCamera3DRat/Timer
 
-@onready var label_bubbles: Label = $LabelBubbles
-
 @onready var books_animation: AnimationPlayer = $Libri/AnimationPlayer
 @onready var trigger_books_animation: Area3D = $Libri/Area3D
 @onready var ammazzazanzare: Node3D = $Libri/Ammazzazanzare
-@onready var audio_libri: AudioStreamPlayer = $AudioStreamPlayerLibri
 @onready var menu_game_over: Control = $Menu_Game_Over
+
+@onready var audio_libri: AudioStreamPlayer = $AudioStreamPlayerLibri
+@onready var audio_agony: AudioStreamPlayer = $AudioStreamPlayerAgony
+@onready var label_bubbles: Label = %LabelBubbles
 
 var is_rat_in_house = false
 var is_game_over = false
 var bubbles : int = 0
+
+func add_bubble_score() -> void:
+	bubbles += 1
+	label_bubbles.text = "BUBBLES → " + str(bubbles)
 
 func start_game() -> void:
 	
@@ -33,11 +38,7 @@ func start_game() -> void:
 	rat_camera.priority = 0
 	game_over_camera.priority = 0
 	player.start()
-	
-func add_bubble_score() -> void:
-	bubbles += 1
-	label_bubbles.text = "BUBBLES → " + str(bubbles)
-	
+
 func fall_animation(_body: Node3D) -> void:
 	
 	if player.current_power_up != BubbleType.PowerType.SPEED:
@@ -81,6 +82,7 @@ func game_over() -> void:
 	else:
 		is_game_over = true
 	
+	audio_agony.play()
 	player.set_power_up(BubbleType.PowerType.NONE, 0)
 	player.wait()
 	menu_game_over.visible = true

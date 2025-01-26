@@ -52,4 +52,20 @@ theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 64
 text = "REPLAY"
 
+[node name="QuitButton" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_colors/font_hover_pressed_color = Color(0.431865, 1, 0.400656, 1)
+theme_override_colors/font_hover_color = Color(0.784314, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.461028, 1, 0.429352, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.568627)
+theme_override_constants/outline_size = 16
+theme_override_constants/h_separation = 32
+theme_override_font_sizes/font_size = 64
+text = "QUIT"
+
 [connection signal="pressed" from="VBoxContainer3/BackButton" to="." method="reload_game"]
+[connection signal="button_up" from="VBoxContainer3/QuitButton" to="." method="_on_quit_button_button_up"]
