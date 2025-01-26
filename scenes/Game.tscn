@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=58 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -42,6 +42,8 @@
 [ext_resource type="PackedScene" uid="uid://blx8qn6jdrbgx" path="res://scenes/NARGHILE.tscn" id="40_82oid"]
 [ext_resource type="PackedScene" uid="uid://bxc5sl863aana" path="res://scenes/poltrona.tscn" id="41_ee2v5"]
 [ext_resource type="PackedScene" uid="uid://m74c1c4au2xt" path="res://scenes/bubble_collectable.tscn" id="42_3nm1q"]
+[ext_resource type="PackedScene" uid="uid://3ktmrc5asekn" path="res://assets/enviroment/TAPPETO.glb" id="43_88bhf"]
+[ext_resource type="PackedScene" uid="uid://cnfmppbjsw06y" path="res://scenes/VASO.tscn" id="44_5eojx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -947,6 +949,12 @@ game_manager = NodePath("../..")
 [node name="Bubble collectable10" parent="Collectables" node_paths=PackedStringArray("game_manager") instance=ExtResource("42_3nm1q")]
 transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, 61.583, 31.4743, 136.393)
 game_manager = NodePath("../..")
+
+[node name="TAPPETO" parent="." instance=ExtResource("43_88bhf")]
+transform = Transform3D(-24.9313, 0, -1.85184, 0, 25, 0, 1.85184, 0, -24.9313, 118.585, -27.2676, 131.001)
+
+[node name="VASO" parent="." instance=ExtResource("44_5eojx")]
+transform = Transform3D(-0.717182, 0, -5.95698, 0, 6, 0, 5.95698, 0, -0.717182, 58.1442, -28.6923, 47.0369)
 
 [connection signal="timeout" from="PhantomCamera3DRat/Timer" to="." method="rat_animation_timeout"]
 [connection signal="game_start" from="Menu" to="." method="start_game"]
