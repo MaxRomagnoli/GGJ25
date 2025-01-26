@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://b0l5auq4db4s7"]
+[gd_scene load_steps=82 format=4 uid="uid://b0l5auq4db4s7"]
 
 [ext_resource type="Texture2D" uid="uid://d4a54qsrue2v5" path="res://assets/crackhouse/crack_house_v2_Wood 14 - 256x256.png" id="1_j7igj"]
 [ext_resource type="Texture2D" uid="uid://bnkhfqfqo5ms" path="res://assets/crackhouse/crack_house_v2_Tile 13 - 256x256.png" id="2_cyoi1"]
@@ -1039,6 +1039,21 @@ size = Vector3(10.7759, 4.79254, 0.712505)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxidf"]
 size = Vector3(11.8032, 1.09812, 17.2698)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_poyvq"]
+size = Vector3(0.404373, 4.09381, 15.4548)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3rqo0"]
+size = Vector3(0.738167, 3.92432, 15.1013)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0ifo"]
+size = Vector3(10.7295, 0.465988, 15.9038)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqqor"]
+size = Vector3(11.7029, 4.22455, 1.70972)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06gj6"]
+size = Vector3(0.309341, 4.22803, 2.77307)
+
 [node name="crack_house_v2" type="Node3D"]
 
 [node name="Floor_salon" type="MeshInstance3D" parent="."]
@@ -1157,3 +1172,23 @@ shape = SubResource("BoxShape3D_mm2x3")
 [node name="floor" type="CollisionShape3D" parent="Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299957, -0.491682, 4.401)
 shape = SubResource("BoxShape3D_fxidf")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99975, 1.48837, 4.53308)
+shape = SubResource("BoxShape3D_poyvq")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.17968, 1.43823, 4.43701)
+shape = SubResource("BoxShape3D_3rqo0")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0913086, 3.40617, 4.31616)
+shape = SubResource("BoxShape3D_g0ifo")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.722046, 1.32999, 12.5446)
+shape = SubResource("BoxShape3D_bqqor")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.409447, 1.20044, -1.35455)
+shape = SubResource("BoxShape3D_06gj6")
