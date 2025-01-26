@@ -2,6 +2,11 @@
 
 ## Theme: Bubbles
 
+## Title: [ZanzAttack](https://globalgamejam.org/games/2025/zanzattack-7)
+
+## Game
+Third person arcade game, with old style graphics, where you have to solve some small riddles to end the game. Are you ready?
+
 ## Team "Merari"
 - [Max Romagnoli](https://www.maxromagnoli.com) (main programmer and game designer)
 - Zibbo (audio design)
@@ -26,7 +31,8 @@
 
 ## Tools
 - Game Engine => Godot 4.3
-- 3D => Blender
+- 3D => Blender and Zbrush
+- Texturing => SubstancePainter
 
 ## Assets
 - [Phantom Camera](https://phantom-camera.dev)
