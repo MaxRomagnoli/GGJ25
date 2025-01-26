@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=50 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -29,8 +29,10 @@
 [ext_resource type="Script" path="res://scripts/spider.gd" id="23_1075t"]
 [ext_resource type="PackedScene" uid="uid://rlh03uqios2c" path="res://scenes/tv.tscn" id="23_sv5c2"]
 [ext_resource type="PackedScene" uid="uid://cjvv45p2jdd34" path="res://scenes/rat.tscn" id="25_hjxfb"]
+[ext_resource type="PackedScene" uid="uid://koyh4x5r7fjh" path="res://scenes/kitchen_cabinet_top.tscn" id="27_056fm"]
 [ext_resource type="PackedScene" uid="uid://cta5jrrvlfuln" path="res://scenes/cheese.tscn" id="27_ccvo1"]
 [ext_resource type="PackedScene" uid="uid://dwb8fhlyqt7bx" path="res://scenes/rat_house.tscn" id="27_s5e45"]
+[ext_resource type="PackedScene" uid="uid://bhj66as5okcmp" path="res://scenes/Kitchen_Oven_Large.tscn" id="28_324vv"]
 [ext_resource type="PackedScene" uid="uid://blabq2v16cupl" path="res://scenes/boss_finale.tscn" id="29_7mxq2"]
 [ext_resource type="PackedScene" uid="uid://yaqaf6an2x46" path="res://scenes/redfly.tscn" id="30_mj64w"]
 [ext_resource type="PackedScene" uid="uid://dl2k11pd4wtvr" path="res://scenes/cheese_little.tscn" id="34_wdhop"]
@@ -687,6 +689,9 @@ transform = Transform3D(0.864345, -0.0942598, 0.493987, -9.31323e-09, 0.982277, 
 script = ExtResource("3_y70rt")
 tween_resource = SubResource("Resource_vda0a")
 
+[node name="Timer" type="Timer" parent="PhantomCamera3DRat"]
+wait_time = 3.0
+
 [node name="PhantomCamera3DFinal" type="Node3D" parent="."]
 transform = Transform3D(-0.71091, 0, 0.703283, 0.294135, 0.90834, 0.297325, -0.63882, 0.418232, -0.645748, 154.308, -0.932629, -21.079)
 script = ExtResource("3_y70rt")
@@ -737,7 +742,7 @@ transform = Transform3D(18.1714, 0, 35.6342, 0, 40, 0, -35.6342, 0, 18.1714, 29.
 transform = Transform3D(-34.0262, -0.0298187, -21.0289, 0.00247118, 40, -0.0607176, 21.0289, -0.0529489, -34.0261, 72.9073, -27.4155, 158.128)
 
 [node name="bicchiere" parent="Enviroment" instance=ExtResource("20_ax4rj")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 31.0847, -10.7163, 126.943)
+transform = Transform3D(1.23432, 0, 4.84525, 0, 5, 0, -4.84525, 0, 1.23432, 15.6486, -1.5176, 243.566)
 
 [node name="Spawner" parent="Enviroment/bicchiere" instance=ExtResource("7_x8126")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.84229, 0)
@@ -750,7 +755,7 @@ transform = Transform3D(25.1989, 0, 50.8764, 0, 40, 0, -68.7218, 0, 18.6554, 60.
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 104.238, -27.1565, 29.9767)
 
 [node name="redfly" parent="Enviroment" instance=ExtResource("30_mj64w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8582, -8.03273, 132.045)
+transform = Transform3D(0.246864, 0, 0.96905, 0, 1, 0, -0.96905, 0, 0.246864, 24.8173, 3.16596, 248.791)
 
 [node name="garbage" parent="Enviroment" instance=ExtResource("22_pmx2n")]
 transform = Transform3D(3.37974, 0, 2.13947, 0, 4, 0, -2.13947, 0, 3.37974, 150.676, -20.8023, 257.941)
@@ -778,6 +783,15 @@ speed_range = Vector2(10, 20)
 [node name="Rat_house" parent="Enviroment" instance=ExtResource("27_s5e45")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 134.233, -27.5881, 32.8675)
 priority = 0
+
+[node name="kitchen_cabinet_top" parent="Enviroment" instance=ExtResource("27_056fm")]
+transform = Transform3D(-24.9594, 0, 1.42386, 0, 25, 0, -1.42386, 0, -24.9594, -1.3403, -27.5893, 248.686)
+
+[node name="Kitchen_Oven_Large2" parent="Enviroment" instance=ExtResource("28_324vv")]
+transform = Transform3D(-24.999, 0, 0.218165, 0, 25, 0, -0.218165, 0, -24.999, 47.2846, -26.5597, 252.166)
+
+[node name="redfly2" parent="Enviroment" instance=ExtResource("30_mj64w")]
+transform = Transform3D(0.190911, -0.623835, 0.75788, -0.969045, 0.00335104, 0.246862, -0.156541, -0.781549, -0.603884, 7.45747, 0.399134, 248.791)
 
 [node name="Libri" type="Node" parent="."]
 
@@ -828,17 +842,28 @@ collision_mask = 2
 transform = Transform3D(9.20737, 0, -3.90185, 0, 10, 0, 3.90185, 0, 9.20737, 1.93264, 13.1216, -3.79149)
 shape = SubResource("BoxShape3D_7mym6")
 
-[node name="rat" parent="." node_paths=PackedStringArray("default_item") instance=ExtResource("25_hjxfb")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -9.27659, -27.2458, 61.9707)
+[node name="rat" parent="." node_paths=PackedStringArray("default_item", "house", "crack_head") instance=ExtResource("25_hjxfb")]
+transform = Transform3D(0.693906, 0, -3.93935, 0, 4, 0, 3.93935, 0, 0.693906, 130.298, -27.2458, 194.082)
 default_item = NodePath("../cheese")
+house = NodePath("../Enviroment/Rat_house")
+crack_head = NodePath("../Enviroment/bed")
 
 [node name="Boss_finale" parent="." instance=ExtResource("29_7mxq2")]
 transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 90.0805, -23.5534, 6.24965)
 
 [node name="cheese" parent="." instance=ExtResource("34_wdhop")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 136.269, -26.5136, 36.3229)
+transform = Transform3D(0.867382, 0, -4.92419, 0, 5, 0, 4.92419, 0, 0.867382, 130.198, -27.5201, 220.464)
 
+[node name="SpawnerCacca" parent="cheese" instance=ExtResource("7_x8126")]
+transform = Transform3D(0.0085906, 0, 0.030046, 0, 0.03125, 0, -0.030046, 0, 0.0085906, -0.1251, -0.210641, 0.205308)
+spawner_type = 2
+power_up_time = 3.0
+spawn_area = Vector2(10, 10)
+spawn_scale = Vector2(10, 20)
+speed_range = Vector2(6, 10)
+
+[connection signal="timeout" from="PhantomCamera3DRat/Timer" to="." method="rat_animation_timeout"]
 [connection signal="game_start" from="Menu" to="." method="start_game"]
-[connection signal="rat_in_house" from="Enviroment/Rat_house" to="." method="rat_animation"]
 [connection signal="body_entered" from="Libri/Area3D" to="." method="fall_animation"]
+[connection signal="rat_in_house" from="rat" to="." method="rat_animation"]
 [connection signal="game_over" from="Boss_finale" to="." method="game_over"]

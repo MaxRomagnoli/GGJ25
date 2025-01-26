@@ -3,6 +3,9 @@ extends Node3D
 signal rat_in_house
 
 @export var default_item := Node
+@export var house := Node
+@export var crack_head := Node
+
 @export var idle_time := float(0.5)
 @export var walk_speed := float(5.0)
 @export var run_speed := float(15.0)
@@ -17,6 +20,7 @@ const RAT_3 = preload("res://assets/music/rat/rat3.wav")
 const RAT_4 = preload("res://assets/music/rat/rat4.wav")
 const RAT_5 = preload("res://assets/music/rat/rat5.wav")
 
+var rat_entered_house = false
 var follow_player = false
 var current_idle_time : float
 var current_sound_frequency : float
@@ -50,7 +54,13 @@ func play_sound() -> void:
 	audio_stream_player.play()
 
 func get_target() -> Vector3:
-	if follow_player:
+	if rat_entered_house:
+		return Vector3(
+			crack_head.position.x,
+			self.position.y,
+			crack_head.position.z
+		)
+	elif follow_player:
 		return Vector3(
 			player.position.x,
 			self.position.y,
@@ -74,6 +84,13 @@ func _process(delta: float) -> void:
 		current_idle_time -= delta
 		return
 	
+	if not rat_entered_house:
+		var house_distance = (position - house.position).length_squared()
+		# print("distance from house " + str(house_distance))
+		if house_distance <= 200:
+			rat_entered_house = true
+			rat_in_house.emit()
+	
 	# Get target, but if is it too close, stay
 	var target = get_target()
 	
@@ -94,7 +111,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	print("Rat collided " + body.name)
-	if body.name == "Player": # TODO decomment and body.current_power_up == BubbleType.PowerType.SHIT:
+	if body.name == "Player" and body.current_power_up == BubbleType.PowerType.SHIT:
 		print("Rat new follower")
 		play_sound()
 		follow_player = true

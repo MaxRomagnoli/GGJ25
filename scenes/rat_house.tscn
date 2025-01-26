@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwb8fhlyqt7bx"]
+[gd_scene load_steps=6 format=3 uid="uid://dwb8fhlyqt7bx"]
 
 [ext_resource type="Texture2D" uid="uid://c2mm5g4c26gd5" path="res://assets/enviroment/rat_house_mouse_house_t.png" id="1_74ci1"]
-[ext_resource type="Script" path="res://scripts/rat_house.gd" id="1_w8g34"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nttw4"]
 resource_name = "rat_house_m"
@@ -48,7 +47,6 @@ radius = 1.5432
 [node name="Rat_house" type="Area3D"]
 collision_mask = 2
 priority = 1
-script = ExtResource("1_w8g34")
 
 [node name="rat_house" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.80958, 7.5498e-08, 1.23714e-07, -1.3662e-07, -4.76837e-07, -1.63864, -1.3662e-07, -1, 8.79039e-07, -0.00826949, 0.697764, -0.00690028)
@@ -62,5 +60,3 @@ shape = SubResource("SphereShape3D_subu8")
 transform = Transform3D(-1.80958, 7.5498e-08, 1.23714e-07, -1.3662e-07, -4.76837e-07, -1.63864, -1.3662e-07, -1, 8.79039e-07, -0.00826949, 0.697764, -0.301639)
 mesh = SubResource("ArrayMesh_rw3v6")
 skeleton = NodePath("")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
