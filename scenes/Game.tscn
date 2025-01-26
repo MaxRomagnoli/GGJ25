@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://nx575y374vu0"]
+[gd_scene load_steps=52 format=3 uid="uid://nx575y374vu0"]
 
 [ext_resource type="PackedScene" uid="uid://6vv6hamy0lec" path="res://scenes/player.tscn" id="1_3t8mw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hsp4a"]
@@ -36,6 +36,8 @@
 [ext_resource type="PackedScene" uid="uid://blabq2v16cupl" path="res://scenes/boss_finale.tscn" id="29_7mxq2"]
 [ext_resource type="PackedScene" uid="uid://yaqaf6an2x46" path="res://scenes/redfly.tscn" id="30_mj64w"]
 [ext_resource type="PackedScene" uid="uid://dl2k11pd4wtvr" path="res://scenes/cheese_little.tscn" id="34_wdhop"]
+[ext_resource type="PackedScene" uid="uid://dkkwcmr8gbv5e" path="res://scenes/fridge.tscn" id="37_4y0jb"]
+[ext_resource type="PackedScene" uid="uid://b1l1rupmi4uwi" path="res://scenes/lavandino.tscn" id="38_g8afb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mjk4t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -724,7 +726,7 @@ transform = Transform3D(-30, 2.29282e-13, 2.62268e-06, 0, -30, 2.62268e-06, 2.62
 transform = Transform3D(-0.233333, 0, 2.03986e-08, 1.78331e-15, -0.233333, 2.03986e-08, 2.03986e-08, 2.03986e-08, 0.233333, 0.133548, 2.06095, -0.0151508)
 
 [node name="lavamano" parent="Enviroment" instance=ExtResource("15_yc5bg")]
-transform = Transform3D(-1.31134e-06, 0, 30, 0, 30, 0, -30, 0, -1.31134e-06, -29.3208, -26.907, -0.612659)
+transform = Transform3D(-1.31134e-06, 0, 30, 0, 30, 0, -30, 0, -1.31134e-06, -29.3208, -27.4742, -0.612659)
 
 [node name="Finestra" parent="Enviroment" instance=ExtResource("16_m23r2")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 9.87897, -2.64263, -27.3103)
@@ -789,6 +791,12 @@ transform = Transform3D(-24.9594, 0, 1.42386, 0, 25, 0, -1.42386, 0, -24.9594, -
 
 [node name="Kitchen_Oven_Large2" parent="Enviroment" instance=ExtResource("28_324vv")]
 transform = Transform3D(-24.999, 0, 0.218165, 0, 25, 0, -0.218165, 0, -24.999, 47.2846, -26.5597, 252.166)
+
+[node name="fridge2" parent="Enviroment" instance=ExtResource("37_4y0jb")]
+transform = Transform3D(1.84183, 0, 24.9321, 0, 25, 0, -24.9321, 0, 1.84183, -23.9274, -27.9343, 199.547)
+
+[node name="LAVABO" parent="Enviroment" instance=ExtResource("38_g8afb")]
+transform = Transform3D(-0.590185, 0, 19.9913, 0, 20, 0, -19.9913, 0, -0.590185, -23.8387, -27.6735, 222.96)
 
 [node name="redfly2" parent="Enviroment" instance=ExtResource("30_mj64w")]
 transform = Transform3D(0.190911, -0.623835, 0.75788, -0.969045, 0.00335104, 0.246862, -0.156541, -0.781549, -0.603884, 7.45747, 0.399134, 248.791)

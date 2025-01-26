@@ -87,7 +87,7 @@ func _process(delta: float) -> void:
 	if not rat_entered_house:
 		var house_distance = (position - house.position).length_squared()
 		# print("distance from house " + str(house_distance))
-		if house_distance <= 200:
+		if house_distance <= 500:
 			rat_entered_house = true
 			rat_in_house.emit()
 	

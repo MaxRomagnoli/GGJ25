@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bwcgnlld35v2m"
-path="res://.godot/imported/fridge.glb-d0b872590b584e11d1660079cfd87a77.scn"
+uid="uid://df5t86j5t8u8u"
+path="res://.godot/imported/ampolla_3.glb-08f60c780441a434d017fc17856a8622.scn"
 
 [deps]
 
-source_file="res://assets/enviroment/fridge.glb"
-dest_files=["res://.godot/imported/fridge.glb-d0b872590b584e11d1660079cfd87a77.scn"]
+source_file="res://assets/enviroment/ampolla_3.glb"
+dest_files=["res://.godot/imported/ampolla_3.glb-08f60c780441a434d017fc17856a8622.scn"]
 
 [params]
 

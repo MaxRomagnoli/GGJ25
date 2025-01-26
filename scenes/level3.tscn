@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://b0l5auq4db4s7"]
+[gd_scene load_steps=77 format=4 uid="uid://b0l5auq4db4s7"]
 
 [ext_resource type="Texture2D" uid="uid://d4a54qsrue2v5" path="res://assets/crackhouse/crack_house_v2_Wood 14 - 256x256.png" id="1_j7igj"]
 [ext_resource type="Texture2D" uid="uid://bnkhfqfqo5ms" path="res://assets/crackhouse/crack_house_v2_Tile 13 - 256x256.png" id="2_cyoi1"]
@@ -1024,6 +1024,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nv03i")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ob133"]
+size = Vector3(3.0957, 3.69476, 0.272583)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1oo1"]
+size = Vector3(2.85291, 4.19531, 0.248047)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fsls"]
+size = Vector3(2.07849, 4.60266, 0.233398)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mm2x3"]
+size = Vector3(10.7759, 4.79254, 0.712505)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxidf"]
+size = Vector3(11.8032, 1.09812, 17.2698)
+
 [node name="crack_house_v2" type="Node3D"]
 
 [node name="Floor_salon" type="MeshInstance3D" parent="."]
@@ -1120,3 +1135,25 @@ skeleton = NodePath("")
 transform = Transform3D(0, -1.01481, 2.86308e-07, -1.50666, 8.0776e-14, 2.86308e-07, -4.25073e-07, -2.86308e-07, -1.01481, -0.547111, 1.89344, -2.87988)
 mesh = SubResource("ArrayMesh_o7r55")
 skeleton = NodePath("")
+
+[node name="Colliders" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111328, 1.45035, -0.0213013)
+shape = SubResource("BoxShape3D_ob133")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0932, 1.59766, -0.0126953)
+shape = SubResource("BoxShape3D_d1oo1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94318, 1.80133, -0.0170898)
+shape = SubResource("BoxShape3D_3fsls")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.233154, 1.33432, -3.25447)
+shape = SubResource("BoxShape3D_mm2x3")
+
+[node name="floor" type="CollisionShape3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299957, -0.491682, 4.401)
+shape = SubResource("BoxShape3D_fxidf")
